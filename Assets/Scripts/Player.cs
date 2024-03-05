@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< Updated upstream
 using Photon.Pun;
-=======
 using UnityEngine.Rendering;
->>>>>>> Stashed changes
+using Photon.Pun.UtilityScripts;
 
 public class Player : MonoBehaviourPunCallbacks
 {
@@ -20,29 +16,29 @@ public class Player : MonoBehaviourPunCallbacks
     [Header("Variables locales")]
     private float xRotation;
 
+    [Header("New Input System")]
+    private InputManager inputManager;
+
     void Start()
     {
+        inputManager = InputManager.Instance;
         rb = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        
     }
 
     private void Update()
     {
         if (photonView.IsMine)
         {
-            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-
-<<<<<<< Updated upstream
-            xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-=======
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -LookClamp, LookClamp);
->>>>>>> Stashed changes
+            Vector2 move = inputManager.GetMouseDelta();
+            move = move * mouseSensitivity * Time.deltaTime;
+            xRotation -= move.y;
+            xRotation = Mathf.Clamp(xRotation, -LookClamp, LookClamp);
 
             Camera.main.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-            transform.Rotate(Vector3.up * mouseX);
+            transform.Rotate(Vector3.up * move.x);
+
         }
     }
 
@@ -50,11 +46,9 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
-            float x = Input.GetAxisRaw("Horizontal");
-            float z = Input.GetAxisRaw("Vertical");
-
-            Vector3 move = transform.right * x + transform.forward * z;
-            rb.MovePosition(rb.position + move * speed * Time.fixedDeltaTime);
+            Vector2 move = inputManager.GetPlayerMovement();
+            Vector3 movement = transform.right * move.x + transform.forward * move.y;
+            rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
         }
     }
 }

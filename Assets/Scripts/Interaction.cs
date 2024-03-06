@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -52,9 +53,15 @@ public class Interaction : MonoBehaviour
             if (hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
             {
                 interactObj.ChangeCamera(false);
-                player.enabled = true;
+                StartCoroutine("BackToNormalView");
             }
         }
+    }
+
+    private IEnumerator BackToNormalView()
+    {
+        yield return new WaitForSeconds(2f);
+        player.enabled = true;
     }
 
 }

@@ -1,9 +1,11 @@
 using System;
+using Photon.Pun;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun.UtilityScripts;
 
-public class Interaction : MonoBehaviour
+public class Interaction : MonoBehaviourPunCallbacks
 {
     private InputControl control;
     private Rigidbody rb;
@@ -19,41 +21,53 @@ public class Interaction : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         player = GetComponent<Player>();
     }
-    private void OnEnable() //Photonview.ismine
+    new private void OnEnable() //Photonview.ismine
     {
-        control.PlayerActions.Interact.performed += Interact;
-        control.PlayerActions.Interact.Enable();
-        control.PlayerActions.Uninteract.performed += ExitInteraction;
-        control.PlayerActions.Uninteract.Enable();
+        if (photonView.IsMine)
+        {
+            control.PlayerActions.Interact.performed += Interact;
+            control.PlayerActions.Interact.Enable();
+            control.PlayerActions.Uninteract.performed += ExitInteraction;
+            control.PlayerActions.Uninteract.Enable();
+        }
     }
 
 
-    private void OnDisable() //Photonview.ismine
+    new private void OnDisable() 
     {
-       control.PlayerActions.Interact.performed -= Interact;
+        if(photonView.IsMine)
+        {
+            control.PlayerActions.Interact.performed -= Interact;
+        }
     }
 
     private void Interact(InputAction.CallbackContext A) //Photonview.ismine
     {
-        Ray r = new Ray(rb.position, rb.transform.forward);
-        if(Physics.Raycast(r, out RaycastHit hit, InteractRange) ) 
+        if (photonView.IsMine)
         {
-            if(hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
+            Ray r = new Ray(rb.position, rb.transform.forward);
+            if(Physics.Raycast(r, out RaycastHit hit, InteractRange) ) 
             {
-                interactObj.ChangeCamera(true);
-                player.enabled = false;
+                if(hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
+                {
+                    interactObj.ChangeCamera(true);
+                    player.enabled = false;
+                }
             }
         }
     }
     private void ExitInteraction(InputAction.CallbackContext context) //Photonview.ismine
     {
-        Ray r = new Ray(rb.position, rb.transform.forward);
-        if (Physics.Raycast(r, out RaycastHit hit, InteractRange))
+        if (photonView.IsMine)
         {
-            if (hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
+            Ray r = new Ray(rb.position, rb.transform.forward);
+            if (Physics.Raycast(r, out RaycastHit hit, InteractRange))
             {
-                interactObj.ChangeCamera(false);
-                StartCoroutine("BackToNormalView");
+                if (hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
+                {
+                    interactObj.ChangeCamera(false);
+                    StartCoroutine("BackToNormalView");
+                }
             }
         }
     }

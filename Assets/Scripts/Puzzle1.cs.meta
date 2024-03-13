@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scripts/Guardia.cs.meta
-guid: 8e0083b1f8d41a1498bcbf6ca773f240
-========
-guid: e84392e28625a40409ea0cb05d11a34b
->>>>>>>> main:Assets/Scripts/Interaction.cs.meta
+guid: 3224ea191cc676446bee77e7539bf0c0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

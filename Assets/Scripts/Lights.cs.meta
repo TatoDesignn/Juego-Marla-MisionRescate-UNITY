@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Lights.cs.meta
 guid: 636296d9d5668de4ea355c75b95f13b1
+========
+guid: 9c37658d74f2aee48882b66640e64aac
+>>>>>>>> main:Assets/Scripts/InputSystem.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

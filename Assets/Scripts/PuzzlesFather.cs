@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class PuzzlesFather : MonoBehaviour
 {   
-    [SerializeField] Camera myCamera;
+    [SerializeField] GameObject myCamera;
     private Vector3 previousLocation;
 
     public void ChangeCamera(bool entering)

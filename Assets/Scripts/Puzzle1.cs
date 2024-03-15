@@ -9,4 +9,9 @@ public class Puzzle1 : PuzzlesFather
         Debug.Log("Puzzle Activado, pero a qué costo?");
     }
 
+    public override void Exit()
+    {
+        throw new System.NotImplementedException();
+    }
+
 }

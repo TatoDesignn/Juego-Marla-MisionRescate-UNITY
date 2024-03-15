@@ -23,8 +23,7 @@ public class Player : MonoBehaviourPunCallbacks
     {
         inputManager = InputManager.Instance;
         rb = GetComponent<Rigidbody>();
-        Cursor.visible = false;
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()

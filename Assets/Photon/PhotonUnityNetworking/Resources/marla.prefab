@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1371200845374123273}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.58882666, y: 0.64999986, z: 0.4988264}
+  m_LocalPosition: {x: 0, y: 0.65, z: 0.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 3597215310335560106}
   - component: {fileID: 1204131060375307824}
   - component: {fileID: 4190728240102347607}
+  - component: {fileID: 5723228551804576413}
   - component: {fileID: 4180227002360625657}
   - component: {fileID: 7875554550316750070}
   - component: {fileID: 4018681452474823373}
@@ -170,7 +171,7 @@ Transform:
   m_GameObject: {fileID: 7780445308414480658}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.58882666, y: 2.88, z: -1}
+  m_LocalPosition: {x: 0, y: 2.88, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -240,7 +241,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  mouseSensitivity: 300
+  mouseSensitivity: 50
+  LookClamp: 45
+--- !u!114 &5723228551804576413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780445308414480658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e2709c34c339748914023fa8ec7948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractRange: 2
 --- !u!136 &4180227002360625657
 CapsuleCollider:
   m_ObjectHideFlags: 0

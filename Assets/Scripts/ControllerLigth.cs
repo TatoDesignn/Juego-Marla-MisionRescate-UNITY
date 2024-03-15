@@ -40,6 +40,6 @@ public class ControllerLigth : MonoBehaviour
     public void Encender()
     {
         luces.SetActive(true);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

@@ -14,6 +14,7 @@ public class ControllerLigth : MonoBehaviour
     [Space]
     [Header("Variables locales:")]
     private float factorMovimiento;
+    private int contador;
     private Vector2 punto1;
     private Vector2 punto2;
 
@@ -22,6 +23,7 @@ public class ControllerLigth : MonoBehaviour
         Ubicacion();
         punto1 = new Vector2(48.4f, 0);
         punto2 = new Vector2(-48.4f, 0);
+        contador = 0;
     }
 
     void Update()
@@ -37,9 +39,24 @@ public class ControllerLigth : MonoBehaviour
         puntoT.anchoredPosition = new Vector2(randomX, puntoT.anchoredPosition.y);
     }
 
-    public void Encender()
+    private void Encender()
     {
         luces.SetActive(true);
         gameObject.SetActive(false);
+    }
+
+    public void Correctas()
+    {
+        contador += 1;
+
+        if(contador <= 2)
+        {
+            velocidad += 1;
+            Ubicacion();
+        }
+        if(contador == 3)
+        {
+            Encender();
+        }
     }
 }

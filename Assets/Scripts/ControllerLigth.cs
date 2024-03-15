@@ -51,7 +51,7 @@ public class ControllerLigth : MonoBehaviour
 
         if(contador <= 2)
         {
-            velocidad += 1;
+            velocidad += 0.6f;
             Ubicacion();
         }
         if(contador == 3)

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - MovementLight
+  - CamaraSensor
   layers:
   - Default
   - TransparentFX

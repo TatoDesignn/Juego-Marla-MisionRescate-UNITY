@@ -13,11 +13,6 @@ public class ControllerCamara : MonoBehaviour
     [Header("Variables locales:")]
     private int camaraActiva = -1; 
 
-    void Start()
-    {
-        Cursor.lockState = CursorLockMode.Confined;
-    }
-
     void Update()
     {
         if (camaraActiva != -1) 

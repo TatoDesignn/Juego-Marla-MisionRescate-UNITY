@@ -20,5 +20,6 @@ public class PuzzleCamara : PuzzlesFather
     private void Activar()
     {
         controladorCamaras.SetActive(true);
+        Cursor.lockState = CursorLockMode.Confined;
     }
 }

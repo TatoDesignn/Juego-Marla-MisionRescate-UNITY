@@ -12,6 +12,7 @@ public class Player : MonoBehaviourPunCallbacks
     [SerializeField] private float speed;
     [SerializeField] private float mouseSensitivity;
     [SerializeField] private float LookClamp;
+    public bool isInteracting = false;
 
     [Header("Variables locales")]
     private float xRotation;

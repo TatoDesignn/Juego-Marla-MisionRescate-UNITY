@@ -1,10 +1,12 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class PuzzlesFather : MonoBehaviour
-{   
+{
+    [SerializeField] protected GameObject PuzzleHolder;
     [SerializeField] GameObject myCamera;
     private Vector3 previousLocation;
 
@@ -25,9 +27,13 @@ public abstract class PuzzlesFather : MonoBehaviour
         {
             Camera.main.transform.DOMove(previousLocation, 1f, false);
             Camera.main.transform.DORotate(new Vector3(0f, 0f, 0f), 2f);
+            Exit();
+
         }
     }
-    public abstract void Interact();
 
-   
+    public abstract void Interact();
+    public abstract void Exit();
+
+
 }

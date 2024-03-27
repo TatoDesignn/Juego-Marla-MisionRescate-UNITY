@@ -21,7 +21,7 @@ public class Interaction : MonoBehaviourPunCallbacks
         rb = GetComponent<Rigidbody>();
         player = GetComponent<Player>();
     }
-    new private void OnEnable() //Photonview.ismine
+    new private void OnEnable() 
     {
         if (photonView.IsMine)
         {
@@ -41,7 +41,7 @@ public class Interaction : MonoBehaviourPunCallbacks
         }
     }
 
-    private void Interact(InputAction.CallbackContext A) //Photonview.ismine
+    private void Interact(InputAction.CallbackContext A) 
     {
         if (photonView.IsMine)
         {
@@ -50,23 +50,29 @@ public class Interaction : MonoBehaviourPunCallbacks
             {
                 if(hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
                 {
+                    interactObj.enabled = true;
                     interactObj.ChangeCamera(true);
+                    player.isInteracting = true;
                     player.enabled = false;
                 }
             }
         }
     }
-    private void ExitInteraction(InputAction.CallbackContext context) //Photonview.ismine
+    private void ExitInteraction(InputAction.CallbackContext context)
     {
         if (photonView.IsMine)
         {
-            Ray r = new Ray(rb.position, rb.transform.forward);
-            if (Physics.Raycast(r, out RaycastHit hit, InteractRange))
+            if(player.isInteracting)
             {
-                if (hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
+                Ray r = new Ray(rb.position, rb.transform.forward);
+                if (Physics.Raycast(r, out RaycastHit hit, InteractRange))
                 {
-                    interactObj.ChangeCamera(false);
-                    StartCoroutine("BackToNormalView");
+                    if (hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
+                    {
+                        interactObj.ChangeCamera(false);
+                        interactObj.Exit();
+                        StartCoroutine("BackToNormalView");
+                    }
                 }
             }
         }
@@ -74,7 +80,8 @@ public class Interaction : MonoBehaviourPunCallbacks
 
     private IEnumerator BackToNormalView()
     {
-        yield return new WaitForSeconds(2f);
+        player.isInteracting = false;
+        yield return new WaitForSeconds(3f);
         player.enabled = true;
     }
 

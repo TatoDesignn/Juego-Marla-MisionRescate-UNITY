@@ -7,6 +7,7 @@ TagManager:
   - MovementLight
   - CamaraSensor
   - PointDoor
+  - Pipe
   layers:
   - Default
   - TransparentFX

@@ -57,7 +57,7 @@ public class Osu : PuzzlesFather
     {
         Instantiate(beatPrefab, this.PuzzleHolder.transform);
         if (intervalRestart > 0.5f)
-            intervalRestart -= 0.2f;
+            intervalRestart -= 0.1f;
     }
 
     public KeyCode AssignKey(KeyCode beat)
@@ -75,6 +75,7 @@ public class Osu : PuzzlesFather
         {
             intervalRestart = 2.5f;
             Exit();
+            base.ChangeCamera(false);
             Debug.Log("Fallaste, vuelve a intentarlo");
         }
         else if(Hits == HitsNeeded)
@@ -82,6 +83,7 @@ public class Osu : PuzzlesFather
             attempt++;
             SetUpNext(attempt);
             Exit();
+            base.ChangeCamera(false);
             Debug.Log("Reclusa liberada");
         }
     }

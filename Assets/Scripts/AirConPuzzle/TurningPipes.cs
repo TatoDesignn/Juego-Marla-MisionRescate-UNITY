@@ -7,24 +7,34 @@ using UnityEngine.UI;
 
 public class TurningPipes : PuzzlesFather
 {
-    [SerializeField] Image[] RotatingPipes;
+    [SerializeField] GameObject[] Owners;
+    Image[] RotatingPipes;
     Pipes[] pipes;
     [SerializeField] Color[] Colors;
     private int index = 0;
 
-    /*private void Awake()
+    private void Awake()
     {
+        RotatingPipes = new Image[Owners.Length];
+        pipes = new Pipes[Owners.Length];
+        int j = 0;
+        foreach(GameObject SoCalled in Owners)
+        {
+            RotatingPipes[j] = SoCalled.transform.GetComponent<Image>();
+            j++;
+        }
         int i = 0;
-        foreach (var pipe in RotatingPipes)
+
+        foreach (GameObject pipe in Owners)
         {
             pipes[i] = pipe.GetComponent<Pipes>();
             i++;
         }
-    }*/
+    }
     public override void Interact()
     {
         this.PuzzleHolder.SetActive(true);
-        ChangePipe(0);
+        RotatingPipes[index].color = Color.gray;
     }
 
     public override void Exit()
@@ -44,7 +54,7 @@ public class TurningPipes : PuzzlesFather
         }
         else
         {
-            if (index < RotatingPipes.Length) 
+            if (index < RotatingPipes.Length-1) 
             {
                 index++;
             }
@@ -54,9 +64,7 @@ public class TurningPipes : PuzzlesFather
 
     private void RotatePipe()
     {
-        RotatingPipes[index].transform.DORotate((RotatingPipes[index].transform.eulerAngles + new Vector3(0, 0, 90)), 1.5f);
-        if (RotatingPipes[index].transform.eulerAngles.z > 359)
-            RotatingPipes[index].transform.eulerAngles = new Vector3(0,0,0);
+        pipes[index].Rotate();
     }
 
     private void Update()

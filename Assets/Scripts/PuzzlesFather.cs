@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class PuzzlesFather : MonoBehaviour
-{   
+{
+    [SerializeField] protected GameObject PuzzleHolder;
     [SerializeField] GameObject myCamera;
     private Vector3 previousLocation;
 

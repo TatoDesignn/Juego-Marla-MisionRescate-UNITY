@@ -3263,6 +3263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089f2527ca80c7b43a32a494a969eed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PuzzleHolder: {fileID: 0}
   myCamera: {fileID: 217693461}
   controladorLuces: {fileID: 387211402}
 --- !u!1 &619912781
@@ -8823,6 +8824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c24283ce2b529e4781f6b0a4b802aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PuzzleHolder: {fileID: 0}
   myCamera: {fileID: 1137546407}
   controladorCamaras: {fileID: 365503516}
 --- !u!1 &1482744078
@@ -10456,6 +10458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 709058776070c984d9889e6473c4a00c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PuzzleHolder: {fileID: 0}
   myCamera: {fileID: 263718292}
   controladorDoor: {fileID: 308680568}
 --- !u!1 &1775317788

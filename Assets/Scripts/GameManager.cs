@@ -14,11 +14,11 @@ public class GameManager : MonoBehaviour
     {
         if (Comunicador.valor == 0)
         {
-            PhotonNetwork.Instantiate("marla", new Vector3(0f, 1.42f, 0f), Quaternion.identity, 0);
+            PhotonNetwork.Instantiate("marla", new Vector3(-22.62f, 0.93f, 8.84f), Quaternion.identity, 0);
         }
         else if (Comunicador.valor == 1)
         {
-            PhotonNetwork.Instantiate("jonno", new Vector3(1.812f, 1.42f, 0f), Quaternion.identity, 0);
+            PhotonNetwork.Instantiate("jonno", new Vector3(13.98f, 0.78f, 32.75f), Quaternion.identity, 0);
         }
     }
 }

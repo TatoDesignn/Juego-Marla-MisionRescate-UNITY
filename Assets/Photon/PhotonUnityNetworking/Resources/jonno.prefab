@@ -106,6 +106,7 @@ MonoBehaviour:
   speed: 5
   mouseSensitivity: 50
   LookClamp: 45
+  isInteracting: 0
 --- !u!114 &6162444661331688015
 MonoBehaviour:
   m_ObjectHideFlags: 0

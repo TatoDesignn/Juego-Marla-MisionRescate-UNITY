@@ -107,7 +107,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fd4a054a2f1397a48bb8a19a33e32f7a,
         type: 3}
       propertyPath: m_Name
-      value: Mesa_Final
+      value: OsuHolder
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7338569898916076594}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3224ea191cc676446bee77e7539bf0c0, type: 3}
   m_Name: 

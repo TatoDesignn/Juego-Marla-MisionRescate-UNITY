@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Puzzles.unity.meta
+guid: 8afe1a0a773f21042a4f3023e144857e
+========
 guid: 841d6f032adb06f44909763212bc7d9f
 folderAsset: yes
+>>>>>>>> main:Assets/Plugins.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

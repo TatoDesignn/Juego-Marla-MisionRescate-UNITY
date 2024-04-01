@@ -20,7 +20,7 @@ public class ValidatorDoor : MonoBehaviour
     {
         if(linea1.activeInHierarchy && linea2.activeInHierarchy && linea3.activeInHierarchy && linea4.activeInHierarchy)
         {
-            puerta.transform.rotation = Quaternion.Euler(0, 0, 0);
+            puerta.transform.Translate(puerta.transform.position.x, puerta.transform.position.y, -10.52f);
             interfaz.SetActive(false);
         }
     }

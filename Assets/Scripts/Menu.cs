@@ -56,7 +56,7 @@ public class Menu : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel(2);
+        PhotonNetwork.LoadLevel(1);
     }
 
     public void Salir()

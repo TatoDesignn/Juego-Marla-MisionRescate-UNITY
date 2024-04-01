@@ -34,6 +34,8 @@ public class ControllerCamara : MonoBehaviour
         {
             camaraActiva = indice;
         }
+
+        Debug.Log(camaraActiva);
     }
 
     public void CamaraUno() { ActivarCamara(0); }

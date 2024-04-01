@@ -39,9 +39,9 @@ public class ControllerLigth : MonoBehaviour
         puntoT.anchoredPosition = new Vector2(randomX, puntoT.anchoredPosition.y);
     }
 
-    private void Encender()
+    private void Apagar()
     {
-        luces.SetActive(true);
+        luces.SetActive(false);
         gameObject.SetActive(false);
     }
 
@@ -56,7 +56,7 @@ public class ControllerLigth : MonoBehaviour
         }
         if(contador == 3)
         {
-            Encender();
+            Apagar();
         }
     }
 }

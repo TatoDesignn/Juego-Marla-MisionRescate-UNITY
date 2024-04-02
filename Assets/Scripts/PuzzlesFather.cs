@@ -5,10 +5,16 @@ using UnityEngine;
 
 public abstract class PuzzlesFather : MonoBehaviour
 {
+    [SerializeField] Material[] Materials;
     [SerializeField] protected GameObject PuzzleHolder;
     [SerializeField] GameObject myCamera;
+    private Material myMaterial;
     private Vector3 previousLocation;
 
+    private void Awake()
+    {
+        myMaterial = GetComponent<Material>();
+    }
     public void ChangeCamera(bool entering)
     {
         if (entering)
@@ -27,6 +33,15 @@ public abstract class PuzzlesFather : MonoBehaviour
             Exit();
         }
     }
+
+    /*public void InteractabeSig(bool hit)
+    {
+        if (hit)
+        {
+            myMaterial = Materials[0];          
+        }
+
+    }*/
 
     public abstract void Interact();
     public abstract void Exit();

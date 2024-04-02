@@ -10,7 +10,10 @@ public class Interaction : MonoBehaviourPunCallbacks
     private InputControl control;
     private Rigidbody rb;
     [SerializeField] private float InteractRange;
+    [SerializeField] private float InteractView;
     private Player player;
+
+    [SerializeField] Canvas Provisional;
     private void Awake()
     {
         control = new InputControl();
@@ -40,6 +43,23 @@ public class Interaction : MonoBehaviourPunCallbacks
             control.PlayerActions.Interact.performed -= Interact;
         }
     }
+
+    /*private void Update()
+    {
+        if (photonView.IsMine)
+        {
+            Debug.DrawRay(rb.position, rb.transform.forward, Color.green ,InteractView);
+            Ray r = new Ray(rb.position, rb.transform.forward);
+            if (Physics.Raycast(r, out RaycastHit hit, InteractView))
+            {
+                if (hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
+                {
+                    Provisional.enabled = true;
+                }
+                else Provisional.enabled = false;
+            }
+        }
+    }*/
 
     private void Interact(InputAction.CallbackContext A) 
     {

@@ -121,6 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractRange: 2
+  InteractView: 0
+  Provisional: {fileID: 0}
 --- !u!136 &2349395970968414762
 CapsuleCollider:
   m_ObjectHideFlags: 0

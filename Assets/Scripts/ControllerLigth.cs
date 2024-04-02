@@ -9,6 +9,8 @@ public class ControllerLigth : MonoBehaviour
     [SerializeField] private GameObject luces;
     [SerializeField] private RectTransform puntoT;
     [SerializeField] private RectTransform movimiento;
+    [SerializeField] private GameObject primera;
+    [SerializeField] private GameObject segunda;
     [SerializeField] private float velocidad;
 
     [Space]
@@ -49,12 +51,19 @@ public class ControllerLigth : MonoBehaviour
     {
         contador += 1;
 
-        if(contador <= 2)
+        if(contador == 1)
         {
-            velocidad += 0.6f;
+            primera.SetActive(true);
+            velocidad += 0.5f;
             Ubicacion();
         }
-        if(contador == 3)
+        if (contador == 2)
+        {
+            segunda.SetActive(true);
+            velocidad += 0.5f;
+            Ubicacion();
+        }
+        if (contador == 3)
         {
             Apagar();
         }

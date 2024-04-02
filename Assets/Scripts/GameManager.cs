@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     {
         if (Comunicador.valor == 0)
         {
-            PhotonNetwork.Instantiate("marla", new Vector3(-22.62f, 0.93f, 8.84f), Quaternion.identity, 0);
+            PhotonNetwork.Instantiate("marla", new Vector3(-22.62f, -4.15f, 8.84f), Quaternion.identity, 0);
         }
         else if (Comunicador.valor == 1)
         {

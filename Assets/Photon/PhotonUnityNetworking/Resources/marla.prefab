@@ -155,6 +155,7 @@ GameObject:
   - component: {fileID: 4018681452474823373}
   - component: {fileID: 717488956914769227}
   - component: {fileID: 4123984451217718258}
+  - component: {fileID: 8368342265209720078}
   m_Layer: 0
   m_Name: marla
   m_TagString: Untagged
@@ -363,3 +364,24 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!65 &8368342265209720078
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780445308414480658}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6578541, y: 0.52556515, z: 0.55503845}
+  m_Center: {x: -0.041994095, y: 0.5711708, z: 0.3510437}

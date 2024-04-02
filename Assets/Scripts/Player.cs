@@ -25,6 +25,11 @@ public class Player : MonoBehaviourPunCallbacks
         inputManager = InputManager.Instance;
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
+
+        if (!photonView.IsMine)
+        {
+            Destroy(GetComponentInChildren<Camera>().gameObject);
+        }
     }
 
     private void Update()

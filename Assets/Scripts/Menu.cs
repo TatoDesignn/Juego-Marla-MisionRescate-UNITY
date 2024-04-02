@@ -10,9 +10,6 @@ public class Menu : MonoBehaviourPunCallbacks
     [Space]
     [Header("Configuracion menu:")]
     [SerializeField] private GameObject[] interfaces;
-    [SerializeField] private Sprite[] storyJ;
-    [SerializeField] private Sprite[] storyM;
-    [SerializeField] private GameObject transcion;
     private bool marla = false;
     private bool jonno = false;
     private bool inicio = true;
@@ -50,16 +47,40 @@ public class Menu : MonoBehaviourPunCallbacks
     {
         Comunicador.valor = 0;
         interfaces[3].SetActive(true);
+        marla = true;
     }
 
     public void Jonno()
     {
         Comunicador.valor = 1;
         interfaces[3].SetActive(true);
+        jonno = true;
     }
 
-    private void Buscar()
+    public void Buscar()
     {
+        interfaces[7].SetActive(true);
+
+        if (marla)
+        {
+            Invoke("ActivarStoryM", 0.1f);
+        }
+        else if (jonno)
+        {
+            Invoke("ActivarStoryJ", 0.1f);
+        }
+    }
+
+    private void ActivarStoryJ()
+    {
+        ControllerStoryBoard.Instance.jonno = true;
+        ControllerStoryBoard.Instance.StoryBoard();
+    }
+
+    private void ActivarStoryM()
+    {
+        ControllerStoryBoard.Instance.marla = true;
+        ControllerStoryBoard.Instance.StoryBoard();
     }
 
     public void Conectar()

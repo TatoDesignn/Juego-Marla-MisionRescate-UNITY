@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eeb9e1ff7f8416242b2bf95f0939e889
+guid: 42ede85d2d1d8bf40b3030dfe9343980
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -134,18 +134,150 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: StoryboardMarla 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 404.5
+        width: 481
+        height: 404.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e450d836794a4941a7a35810b249ee4
+      internalID: 66544003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StoryboardMarla 1_1
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 404.5
+        width: 481
+        height: 404.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f0b1f882b31d814e898e1860f470c98
+      internalID: -1945313298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StoryboardMarla 1_2
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 404.5
+        width: 481
+        height: 404.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 905360034d0046e4db9a73f1a354d02c
+      internalID: 1827752554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StoryboardMarla 1_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.5
+        width: 481
+        height: 404.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f4f5bc2ab084234fbf81b0b5aeb3301
+      internalID: 2064456804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StoryboardMarla 1_4
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 0.5
+        width: 481
+        height: 404.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a88d02823e64fe7499aa0af8ef79463c
+      internalID: -802071014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StoryboardMarla 1_5
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 0.5
+        width: 481
+        height: 404.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7271166d4494d4a459a7618304770745
+      internalID: 300209326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0025f282882bde046b50a97a23c984e5
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      StoryboardMarla 1_0: 66544003
+      StoryboardMarla 1_1: -1945313298
+      StoryboardMarla 1_2: 1827752554
+      StoryboardMarla 1_3: 2064456804
+      StoryboardMarla 1_4: -802071014
+      StoryboardMarla 1_5: 300209326
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

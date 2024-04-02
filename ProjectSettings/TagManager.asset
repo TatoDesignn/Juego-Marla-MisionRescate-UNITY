@@ -8,6 +8,7 @@ TagManager:
   - CamaraSensor
   - PointDoor
   - Pipe
+  - GameManager
   layers:
   - Default
   - TransparentFX

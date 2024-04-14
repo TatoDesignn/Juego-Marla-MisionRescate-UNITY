@@ -20,6 +20,9 @@ public class ControllerLigth : MonoBehaviour
     private Vector2 punto1;
     private Vector2 punto2;
 
+    [SerializeField] private AudioSource audioSource; // Variable para el AudioSource
+    [SerializeField] private AudioClip clipFinMinijuego; // Sonido al finalizar el minijuego
+
     void Start()
     {
         Ubicacion();
@@ -45,6 +48,12 @@ public class ControllerLigth : MonoBehaviour
     {
         luces.SetActive(false);
         gameObject.SetActive(false);
+
+        // Reproduce el sonido al finalizar el minijuego
+        if (audioSource != null && clipFinMinijuego != null)
+        {
+            audioSource.PlayOneShot(clipFinMinijuego);
+        }
     }
 
     public void Correctas()

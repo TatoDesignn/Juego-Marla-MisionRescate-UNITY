@@ -15,9 +15,12 @@ public class Osu : PuzzlesFather
     private int attempt = 0;
     public int Hits;
     private int HitsNeeded = 5;
+
+    [SerializeField] private AudioSource failSound;
+
     private void Awake()
     {
-        if(instance == null) instance = this;
+        if (instance == null) instance = this;
         else Destroy(this.gameObject);
     }
 
@@ -29,6 +32,7 @@ public class Osu : PuzzlesFather
         keys[2] = KeyCode.A;
         keys[3] = KeyCode.D;
     }
+
     public override void Exit()
     {
         Hits = 0;
@@ -44,7 +48,7 @@ public class Osu : PuzzlesFather
 
     private void Update()
     {
-        if(interval <= 0)
+        if (interval <= 0)
         {
             GenerateBeat();
             interval = intervalRestart;
@@ -71,14 +75,17 @@ public class Osu : PuzzlesFather
     public void HitOrMiss(int value)
     {
         Hits += value;
-        if(Hits == -5)
+        if (Hits == -5)
         {
             intervalRestart = 2.5f;
             Exit();
             base.ChangeCamera(false);
             Debug.Log("Fallaste, vuelve a intentarlo");
+            // Reproducir sonido de fallo
+            if (failSound != null)
+                failSound.Play();
         }
-        else if(Hits == HitsNeeded)
+        else if (Hits == HitsNeeded)
         {
             attempt++;
             SetUpNext(attempt);
@@ -88,15 +95,15 @@ public class Osu : PuzzlesFather
         }
     }
 
-    private void SetUpNext(int attemp)
+    private void SetUpNext(int attempt)
     {
-        switch (attemp)
+        switch (attempt)
         {
-            case 0: 
+            case 0:
                 HitsNeeded = 5; break;
-            case 1: 
+            case 1:
                 HitsNeeded = 8; break;
-            case 2: 
+            case 2:
                 HitsNeeded = 12; break;
             case 3:
                 HitsNeeded = 16; break;

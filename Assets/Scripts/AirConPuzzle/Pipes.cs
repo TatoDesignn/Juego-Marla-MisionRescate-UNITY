@@ -7,17 +7,9 @@ using UnityEngine.UI;
 public class Pipes : MonoBehaviour
 {
     [SerializeField] GameObject[] MyPositions = new GameObject[4];
+    [SerializeField] RealPipe RealOne;
     private int Pos = 0;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        
-    }
 
     public void Rotate()
     {
@@ -26,6 +18,9 @@ public class Pipes : MonoBehaviour
         Pos++;
         if (Pos == MyPositions.Length)
             Pos = 0;
+        if(RealOne != null)
+            RealOne.Rotate();
+
     }
     
 }

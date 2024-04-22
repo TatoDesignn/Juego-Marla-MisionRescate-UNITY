@@ -91,10 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c50300f414b304084e9bf7fc0c7847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ring: {fileID: 8238236094854642022}
-  Key: {fileID: 1671300258505291714}
+  Ring: {fileID: 1248014043559035187}
+  Key: {fileID: 0}
   MyKey: 0
-  aciertoSound: {fileID: 8300000, guid: 4082bf5aefb9d764e821017325794421, type: 3}
 --- !u!82 &-2005913744080666173
 AudioSource:
   m_ObjectHideFlags: 0

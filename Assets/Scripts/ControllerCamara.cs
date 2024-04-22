@@ -5,9 +5,13 @@ using UnityEngine;
 public class ControllerCamara : MonoBehaviour
 {
     [Space]
-    [Header("Configuración de las cámaras:")]
+    [Header("Configuraciï¿½n de las cï¿½maras:")]
     [SerializeField] private GameObject[] camaras; 
     [SerializeField] private float velocidad;
+
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip sonidoMovimiento;
+
 
     [Space]
     [Header("Variables locales:")]
@@ -15,17 +19,19 @@ public class ControllerCamara : MonoBehaviour
 
     void Update()
     {
-        if (camaraActiva != -1) 
+    if (camaraActiva != -1) 
+    {
+        if (Input.GetKey(KeyCode.A))
         {
-            if (Input.GetKey(KeyCode.A))
-            {
-                camaras[camaraActiva].transform.Rotate(Vector3.up, -velocidad * Time.deltaTime);
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                camaras[camaraActiva].transform.Rotate(Vector3.up, velocidad * Time.deltaTime);
-            }
+            camaras[camaraActiva].transform.Rotate(Vector3.up, -velocidad * Time.deltaTime);
+            ReproducirSonidoMovimiento();
         }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            camaras[camaraActiva].transform.Rotate(Vector3.up, velocidad * Time.deltaTime);
+            ReproducirSonidoMovimiento();
+        }
+    }
     }
 
     public void ActivarCamara(int indice)
@@ -37,6 +43,14 @@ public class ControllerCamara : MonoBehaviour
 
         Debug.Log(camaraActiva);
     }
+
+    private void ReproducirSonidoMovimiento()
+{
+    if (sonidoMovimiento != null && audioSource != null)
+    {
+        audioSource.PlayOneShot(sonidoMovimiento);
+    }
+}
 
     public void CamaraUno() { ActivarCamara(0); }
     public void CamaraDos() { ActivarCamara(1); }

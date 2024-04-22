@@ -3,7 +3,14 @@ guid: f8901ba5c0def6c418967cb2934fc0c8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - luces: {instanceID: 0}
+  - puntoT: {instanceID: 0}
+  - movimiento: {instanceID: 0}
+  - primera: {instanceID: 0}
+  - segunda: {instanceID: 0}
+  - audioSource: {instanceID: 0}
+  - clipFinMinijuego: {fileID: 8300000, guid: eedacc9a21c91da43a16cf60dcd23a2f, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -13,10 +13,10 @@ public class Beats : MonoBehaviour
     [SerializeField] private static float interval = 1f;
     public KeyCode MyKey;
     Osu instance;
-    AudioSource audioSource; 
+
 
    
-    [SerializeField] AudioClip aciertoSound;
+    
 
     private void Awake()
     {
@@ -27,7 +27,7 @@ public class Beats : MonoBehaviour
         Key.text = this.MyKey.ToString();
 
        
-        audioSource = GetComponent<AudioSource>();
+      
     }
 
     private void Update()
@@ -40,11 +40,6 @@ public class Beats : MonoBehaviour
                 this.instance.HitOrMiss(1);
                 Destroy(this.gameObject);
 
-               
-                if (aciertoSound != null && audioSource != null)
-                {
-                    audioSource.PlayOneShot(aciertoSound);
-                }
             }
             else 
             {
@@ -70,3 +65,4 @@ public class Beats : MonoBehaviour
             interval += 0.3f;
     }
 }
+

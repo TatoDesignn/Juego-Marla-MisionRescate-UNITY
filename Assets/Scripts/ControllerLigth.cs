@@ -11,7 +11,11 @@ public class ControllerLigth : MonoBehaviour
     [SerializeField] private RectTransform movimiento;
     [SerializeField] private GameObject primera;
     [SerializeField] private GameObject segunda;
+    [SerializeField] private GameObject rectanguloLargo;
     [SerializeField] private float velocidad;
+    [SerializeField] private AudioSource audioSource; // Referencia al componente AudioSource
+    [SerializeField] private AudioClip apagarSound; // Sonido que se reproducirá al apagar el ControllerLigth
+    [SerializeField] private AudioClip aumentoVelocidadSound; // Sonido que se reproducirá al aumentar la velocidad
 
     [Space]
     [Header("Variables locales:")]
@@ -20,11 +24,15 @@ public class ControllerLigth : MonoBehaviour
     private Vector2 punto1;
     private Vector2 punto2;
 
-    [SerializeField] private AudioSource audioSource; // Variable para el AudioSource
-    [SerializeField] private AudioClip clipFinMinijuego; // Sonido al finalizar el minijuego
-
     void Start()
     {
+        audioSource = GetComponent<AudioSource>(); // Obtener el componente AudioSource del mismo GameObject
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>(); // Agregar AudioSource si no existe
+        }
+        audioSource.clip = apagarSound; // Asignar el sonido al AudioSource
+
         Ubicacion();
         punto1 = new Vector2(48.4f, 0);
         punto2 = new Vector2(-48.4f, 0);
@@ -40,20 +48,28 @@ public class ControllerLigth : MonoBehaviour
     private void Ubicacion()
     {
         float randomX = Random.Range(-40, 40);
-
         puntoT.anchoredPosition = new Vector2(randomX, puntoT.anchoredPosition.y);
     }
 
-    private void Apagar()
+    private IEnumerator ApagarConSonido()
     {
+        // Desactivar o hacer invisible cada componente individualmente
         luces.SetActive(false);
-        gameObject.SetActive(false);
+        puntoT.gameObject.SetActive(false);
+        movimiento.gameObject.SetActive(false);
+        primera.SetActive(false);
+        segunda.SetActive(false);
+        rectanguloLargo.SetActive(false);
 
-        // Reproduce el sonido al finalizar el minijuego
-        if (audioSource != null && clipFinMinijuego != null)
+        // Reproducir el sonido al apagar el ControllerLigth
+        if (audioSource != null && apagarSound != null) // Verificar si hay AudioSource y AudioClip asignados
         {
-            audioSource.PlayOneShot(clipFinMinijuego);
+            audioSource.PlayOneShot(apagarSound); // Reproducir el sonido al apagar el ControllerLigth
+            yield return new WaitForSeconds(apagarSound.length); // Esperar la duración del sonido
         }
+
+        // Desactivar el objeto después de que el sonido haya terminado
+        gameObject.SetActive(false);
     }
 
     public void Correctas()
@@ -64,17 +80,25 @@ public class ControllerLigth : MonoBehaviour
         {
             primera.SetActive(true);
             velocidad += 0.5f;
+            if (aumentoVelocidadSound != null)
+            {
+                audioSource.PlayOneShot(aumentoVelocidadSound); // Reproducir el sonido de aumento de velocidad
+            }
             Ubicacion();
         }
         if (contador == 2)
         {
             segunda.SetActive(true);
             velocidad += 0.5f;
+            if (aumentoVelocidadSound != null)
+            {
+                audioSource.PlayOneShot(aumentoVelocidadSound); // Reproducir el sonido de aumento de velocidad
+            }
             Ubicacion();
         }
         if (contador == 3)
         {
-            Apagar();
+            StartCoroutine(ApagarConSonido()); // Iniciar la corrutina para apagar con sonido
         }
     }
 }

@@ -38,17 +38,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Wolf3D_Outfit_Bottom
-    second: {fileID: 2100000, guid: 8b195e25efe75294f8f300ccd8f96de8, type: 2}
+    second: {fileID: 2100000, guid: 1daf89ecfe2a2a0489306240dac89ef6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Wolf3D_Outfit_Footwear
-    second: {fileID: 2100000, guid: 1062f55b96727dd419ea83db5194c8df, type: 2}
+    second: {fileID: 2100000, guid: 08a5ac8caeda72a4280b4d4e3a59c8c5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Wolf3D_Outfit_Top
-    second: {fileID: 2100000, guid: edef21cf527af4c4cbaa10207deffd15, type: 2}
+    second: {fileID: 2100000, guid: a2add84a76652314fa708b212d4a310a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

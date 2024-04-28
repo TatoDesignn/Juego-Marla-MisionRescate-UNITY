@@ -19,6 +19,7 @@ public class Player : MonoBehaviourPunCallbacks
 
     [Header("New Input System")]
     private InputManager inputManager;
+    private Animator MyAnimator;
 
     void Start()
     {
@@ -30,6 +31,8 @@ public class Player : MonoBehaviourPunCallbacks
         {
             Destroy(GetComponentInChildren<Camera>().gameObject);
         }
+
+        MyAnimator = GetComponent<Animator>();
     }
 
     private void Update()

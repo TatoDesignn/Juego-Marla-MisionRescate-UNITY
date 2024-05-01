@@ -32,6 +32,8 @@ public class Interaction : MonoBehaviourPunCallbacks
             control.PlayerActions.Interact.Enable();
             control.PlayerActions.Uninteract.performed += ExitInteraction;
             control.PlayerActions.Uninteract.Enable();
+            //control.PlayerActions.Crouch.performed += isCrouching;
+            control.PlayerActions.Crouch.Enable();
         }
     }
 
@@ -42,6 +44,7 @@ public class Interaction : MonoBehaviourPunCallbacks
         {
             control.PlayerActions.Interact.performed -= Interact;
             control.PlayerActions.Uninteract.performed -= ExitInteraction;
+            control.PlayerActions.Crouch.performed -= ExitInteraction;
         }
     }
 
@@ -99,6 +102,18 @@ public class Interaction : MonoBehaviourPunCallbacks
             }
         }
     }
+
+    /*private void isCrouching(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            player.MyAnimator.SetBool("isCrouching", true);
+        }
+        else if (context.canceled)
+        {
+            player.MyAnimator.SetBool("isCrouching", false);
+        }
+    }*/
 
     private IEnumerator BackToNormalView()
     {

@@ -6,7 +6,7 @@ using Photon.Pun.UtilityScripts;
 public class Player : MonoBehaviourPunCallbacks
 {
     private Rigidbody rb;
-    private Animator MyAnimator;
+    public Animator MyAnimator;
 
     [Space]
     [Header("Configuracion de Movimiento")]
@@ -39,11 +39,13 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
+            //Get Camera Input
             Vector2 move = inputManager.GetMouseDelta();
             move = move * mouseSensitivity * Time.deltaTime;
             xRotation -= move.y;
             xRotation = Mathf.Clamp(xRotation, -LookClamp, LookClamp);
 
+            //Move Camera
             Camera.main.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             transform.Rotate(Vector3.up * move.x);
 
@@ -54,8 +56,20 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
+            //Get Input
             Vector2 move = inputManager.GetPlayerMovement();
             Vector3 movement = transform.right * move.x + transform.forward * move.y;
+            //Animate
+            MyAnimator.SetBool("isCrouching", inputManager.PlayerCrouching());
+            if(movement != Vector3.zero)
+            {
+                MyAnimator.SetBool("isWalking", true);
+                MyAnimator.SetFloat("X", move.y);
+                MyAnimator.SetFloat ("Y", move.x);
+            }
+            else
+                MyAnimator.SetBool("isWalking", false);
+            //Move
             rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
         }
     }

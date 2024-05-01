@@ -44,4 +44,9 @@ public class InputManager : MonoBehaviour
     {
         return inputControl.PlayerActions.Interact.triggered;
     }
+
+    public bool PlayerCrouching()
+    {
+        return inputControl.PlayerActions.Crouch.IsPressed();
+    }
 }

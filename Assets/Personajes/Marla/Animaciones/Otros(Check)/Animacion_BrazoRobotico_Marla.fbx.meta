@@ -1,99 +1,9 @@
 fileFormatVersion: 2
-guid: cd4674c4aa350ec4d9d28733d172dfa7
+guid: 5b6ac64bd07bdda4dbfbc1e50398fedd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Standardmaterial18
-    second: {fileID: 2100000, guid: 360d996a6c49b9349b6f00218e14bfd8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Standardmaterial19
-    second: {fileID: 2100000, guid: 9eac747b863e3b5428f968b7eede9971, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Standardmaterial5
-    second: {fileID: 2100000, guid: 10fbab36d4b3986418b20ea062e6298d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wolf3D_Body
-    second: {fileID: 2100000, guid: 9bc340d966238d94e90179ba82c7c8a0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wolf3D_Eye
-    second: {fileID: 2100000, guid: deb9fc736f3c85f458cc8a07bc01f617, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wolf3D_Hair
-    second: {fileID: 2100000, guid: c83babcfbe39c664583cd908c496f9f8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wolf3D_Outfit_Bottom
-    second: {fileID: 2100000, guid: 1daf89ecfe2a2a0489306240dac89ef6, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wolf3D_Outfit_Footwear
-    second: {fileID: 2100000, guid: 08a5ac8caeda72a4280b4d4e3a59c8c5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wolf3D_Outfit_Top
-    second: {fileID: 2100000, guid: a2add84a76652314fa708b212d4a310a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wolf3D_Skin
-    second: {fileID: 2100000, guid: 34c74bbaf6ccbd04e9ad5d59afc2c035, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wolf3D_Teeth
-    second: {fileID: 2100000, guid: 53d58d16c0e5f8e40a31673dc44edbfb, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Standardmaterial18_baseColor
-    second: {fileID: 2800000, guid: 69c9d598e7f522b468dab889a8fa6525, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Standardmaterial18_normal
-    second: {fileID: 2800000, guid: 12d667e80d0d89343a88471cd79d5ace, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Standardmaterial19_baseColor
-    second: {fileID: 2800000, guid: 3be6911e312fd674aba97c92c06c62fc, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Standardmaterial19_normal
-    second: {fileID: 2800000, guid: 6323e7fc78fe6954e834c9b8382a9e7d, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Standardmaterial5_baseColor
-    second: {fileID: 2800000, guid: 46a2a56b583473f4eb76d52ba978222e, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Standardmaterial5_emissive
-    second: {fileID: 2800000, guid: c3c8f3ec47da3b345a011e531a27ea89, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Standardmaterial5_normal
-    second: {fileID: 2800000, guid: 5f5b50cc7838b91479665ecc829322fd, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -114,7 +24,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -655,11 +565,12 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: cd4674c4aa350ec4d9d28733d172dfa7,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 3
+  animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

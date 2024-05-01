@@ -5,7 +5,8 @@ using Photon.Pun.UtilityScripts;
 
 public class Player : MonoBehaviourPunCallbacks
 {
-    Rigidbody rb;
+    private Rigidbody rb;
+    private Animator MyAnimator;
 
     [Space]
     [Header("Configuracion de Movimiento")]
@@ -19,20 +20,19 @@ public class Player : MonoBehaviourPunCallbacks
 
     [Header("New Input System")]
     private InputManager inputManager;
-    private Animator MyAnimator;
 
     void Start()
     {
         inputManager = InputManager.Instance;
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
+        MyAnimator = GetComponent<Animator>();
 
         if (!photonView.IsMine)
         {
             Destroy(GetComponentInChildren<Camera>().gameObject);
         }
 
-        MyAnimator = GetComponent<Animator>();
     }
 
     private void Update()

@@ -62,6 +62,15 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Crouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""f3a8d35d-e28b-470e-b2b5-59f09add3fee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
                     ""action"": ""Uninteract"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08f61066-2f6d-4e11-9761-2bf1dd0a2625"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +184,7 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
         m_PlayerActions_Interact = m_PlayerActions.FindAction("Interact", throwIfNotFound: true);
         m_PlayerActions_Look_Around = m_PlayerActions.FindAction("Look_Around", throwIfNotFound: true);
         m_PlayerActions_Uninteract = m_PlayerActions.FindAction("Uninteract", throwIfNotFound: true);
+        m_PlayerActions_Crouch = m_PlayerActions.FindAction("Crouch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +250,7 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_Interact;
     private readonly InputAction m_PlayerActions_Look_Around;
     private readonly InputAction m_PlayerActions_Uninteract;
+    private readonly InputAction m_PlayerActions_Crouch;
     public struct PlayerActionsActions
     {
         private @InputControl m_Wrapper;
@@ -237,6 +259,7 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_PlayerActions_Interact;
         public InputAction @Look_Around => m_Wrapper.m_PlayerActions_Look_Around;
         public InputAction @Uninteract => m_Wrapper.m_PlayerActions_Uninteract;
+        public InputAction @Crouch => m_Wrapper.m_PlayerActions_Crouch;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +281,9 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
             @Uninteract.started += instance.OnUninteract;
             @Uninteract.performed += instance.OnUninteract;
             @Uninteract.canceled += instance.OnUninteract;
+            @Crouch.started += instance.OnCrouch;
+            @Crouch.performed += instance.OnCrouch;
+            @Crouch.canceled += instance.OnCrouch;
         }
 
         private void UnregisterCallbacks(IPlayerActionsActions instance)
@@ -274,6 +300,9 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
             @Uninteract.started -= instance.OnUninteract;
             @Uninteract.performed -= instance.OnUninteract;
             @Uninteract.canceled -= instance.OnUninteract;
+            @Crouch.started -= instance.OnCrouch;
+            @Crouch.performed -= instance.OnCrouch;
+            @Crouch.canceled -= instance.OnCrouch;
         }
 
         public void RemoveCallbacks(IPlayerActionsActions instance)
@@ -297,5 +326,6 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnLook_Around(InputAction.CallbackContext context);
         void OnUninteract(InputAction.CallbackContext context);
+        void OnCrouch(InputAction.CallbackContext context);
     }
 }

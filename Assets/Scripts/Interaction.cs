@@ -41,6 +41,7 @@ public class Interaction : MonoBehaviourPunCallbacks
         if(photonView.IsMine)
         {
             control.PlayerActions.Interact.performed -= Interact;
+            control.PlayerActions.Uninteract.performed -= ExitInteraction;
         }
     }
 
@@ -60,6 +61,7 @@ public class Interaction : MonoBehaviourPunCallbacks
             }
         }
     }*/
+
 
     private void Interact(InputAction.CallbackContext A) 
     {

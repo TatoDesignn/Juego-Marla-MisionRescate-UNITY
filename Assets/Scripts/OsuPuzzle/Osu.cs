@@ -9,7 +9,7 @@ public class Osu : PuzzlesFather
     [SerializeField] public float intervalRestart;
     [SerializeField] private float interval;
     public static Osu instance;
-    private static KeyCode[] keys = new KeyCode[4];
+    private static KeyCode[] keys = new KeyCode[7];
     private static int i = 0;
 
     private int attempt = 0;
@@ -28,9 +28,13 @@ public class Osu : PuzzlesFather
     {
         Hits = 0;
         keys[0] = KeyCode.W;
-        keys[1] = KeyCode.S;
+        keys[1] = KeyCode.Space;
         keys[2] = KeyCode.A;
-        keys[3] = KeyCode.D;
+        keys[3] = KeyCode.F;
+        keys[4] = KeyCode.S;
+        keys[5] = KeyCode.Tab;
+        keys[6] = KeyCode.D;
+
     }
 
     public override void Exit()
@@ -68,7 +72,7 @@ public class Osu : PuzzlesFather
     {
         beat = keys[i];
         i++;
-        if (i == 4) i = 0;
+        if (i == keys.Length) i = 0;
         return beat;
     }
 

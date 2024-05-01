@@ -28,7 +28,7 @@ public class Beats : MonoBehaviour
 
        
       
-    }
+    }   
 
     private void Update()
     {
@@ -44,10 +44,11 @@ public class Beats : MonoBehaviour
             else 
             {
                 this.instance.HitOrMiss(-1);
+                Destroy(this.gameObject);
             }
         }
 
-        if(this.Ring.transform.localScale.x < 0.9f)
+        if(this.Ring.transform.localScale.x < 0.8f)
         {
             this.instance.HitOrMiss(-1);
             Destroy(this.gameObject);

@@ -11,6 +11,7 @@ TagManager:
   - GameManager
   - PuzzleLight
   - PuzzleDoor
+  - Puerta
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ValidatorDoor : MonoBehaviour
 {
     PuzzleDoor puzzle;
+    Puerta puertaScript;
 
     [Space]
     [Header("Objetos validadores de la puerta: ")]
@@ -27,6 +28,7 @@ public class ValidatorDoor : MonoBehaviour
     private void Start()
     {
         puzzle = GameObject.FindGameObjectWithTag("PuzzleDoor").GetComponent<PuzzleDoor>();
+        puertaScript = GameObject.FindGameObjectWithTag("Puerta").GetComponent<Puerta>();
     }
 
     void Update()
@@ -48,7 +50,8 @@ public class ValidatorDoor : MonoBehaviour
         yield return new WaitForSeconds(activationSound.length);
 
         // Desactivar la puerta y la interfaz
-        puerta.transform.Translate(puerta.transform.position.x, puerta.transform.position.y, -10.52f);
+        puertaScript.Animar();
+
         interfaz.SetActive(false);
         controles.SetActive(true);
     }

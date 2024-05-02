@@ -37,40 +37,46 @@ public class Player : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if (photonView.IsMine)
+        if (Comunicador.canMove)
         {
-            //Get Camera Input
-            Vector2 move = inputManager.GetMouseDelta();
-            move = move * mouseSensitivity * Time.deltaTime;
-            xRotation -= move.y;
-            xRotation = Mathf.Clamp(xRotation, -LookClamp, LookClamp);
+            if (photonView.IsMine)
+            {
+                //Get Camera Input
+                Vector2 move = inputManager.GetMouseDelta();
+                move = move * mouseSensitivity * Time.deltaTime;
+                xRotation -= move.y;
+                xRotation = Mathf.Clamp(xRotation, -LookClamp, LookClamp);
 
-            //Move Camera
-            Camera.main.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-            transform.Rotate(Vector3.up * move.x);
+                //Move Camera
+                Camera.main.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+                transform.Rotate(Vector3.up * move.x);
 
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        if (photonView.IsMine)
+        if (Comunicador.canMove)
         {
-            //Get Input
-            Vector2 move = inputManager.GetPlayerMovement();
-            Vector3 movement = transform.right * move.x + transform.forward * move.y;
-            //Animate
-            MyAnimator.SetBool("isCrouching", inputManager.PlayerCrouching());
-            if(movement != Vector3.zero)
+            if (photonView.IsMine)
             {
-                MyAnimator.SetBool("isWalking", true);
-                MyAnimator.SetFloat("X", move.y);
-                MyAnimator.SetFloat ("Y", move.x);
+                //Get Input
+                Vector2 move = inputManager.GetPlayerMovement();
+                Vector3 movement = transform.right * move.x + transform.forward * move.y;
+                //Animate
+                MyAnimator.SetBool("isCrouching", inputManager.PlayerCrouching());
+                if (movement != Vector3.zero)
+                {
+                    MyAnimator.SetBool("isWalking", true);
+                    MyAnimator.SetFloat("X", move.y);
+                    MyAnimator.SetFloat("Y", move.x);
+                }
+                else
+                    MyAnimator.SetBool("isWalking", false);
+                //Move
+                rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
             }
-            else
-                MyAnimator.SetBool("isWalking", false);
-            //Move
-            rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
         }
     }
 }

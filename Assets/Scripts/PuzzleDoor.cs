@@ -7,6 +7,7 @@ public class PuzzleDoor : PuzzlesFather
     [Header("Configuracion de las Puertas")]
     [SerializeField] private GameObject controladorDoor;
     [SerializeField] private GameObject controles;
+    [SerializeField] private GameObject particulas;
 
     public bool acceder = true;
 
@@ -24,6 +25,7 @@ public class PuzzleDoor : PuzzlesFather
 
         if(!acceder)
         {
+            particulas.SetActive(false);
             Destroy(GetComponent<PuzzleDoor>());
         }
     }

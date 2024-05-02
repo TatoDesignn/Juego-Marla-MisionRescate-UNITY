@@ -448,6 +448,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64685581}
   m_CullTransparentMesh: 1
+--- !u!1 &65324822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1334601773921075219, guid: 544c2197bac25f741a11aadbbfd98469,
+    type: 3}
+  m_PrefabInstance: {fileID: 2141934615}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &76589769
 GameObject:
   m_ObjectHideFlags: 0
@@ -5365,6 +5371,11 @@ PrefabInstance:
       propertyPath: controles
       value: 
       objectReference: {fileID: 1256336560}
+    - target: {fileID: 2379049206212407747, guid: 34664a53962abee488bf8d6dd11826bc,
+        type: 3}
+      propertyPath: particulas
+      value: 
+      objectReference: {fileID: 2125217962}
     - target: {fileID: 2445104402692003693, guid: 34664a53962abee488bf8d6dd11826bc,
         type: 3}
       propertyPath: m_TagString
@@ -14186,6 +14197,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1376945145}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2125217962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1171911029722746551, guid: 34664a53962abee488bf8d6dd11826bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 728293007}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2125226055
 GameObject:
   m_ObjectHideFlags: 0
@@ -14480,6 +14497,11 @@ PrefabInstance:
       propertyPath: controles
       value: 
       objectReference: {fileID: 1197005224}
+    - target: {fileID: 1996993519305675887, guid: 544c2197bac25f741a11aadbbfd98469,
+        type: 3}
+      propertyPath: particulas
+      value: 
+      objectReference: {fileID: 65324822}
     - target: {fileID: 2054999343144177122, guid: 544c2197bac25f741a11aadbbfd98469,
         type: 3}
       propertyPath: m_Sprite

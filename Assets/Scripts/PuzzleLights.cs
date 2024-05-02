@@ -8,6 +8,7 @@ public class PuzzleLights : PuzzlesFather
     [Header("Configuracion de las luces")]
     [SerializeField] private GameObject controladorLuces;
     [SerializeField] private GameObject controles;
+    [SerializeField] private GameObject particulas;
 
     public bool acceder = true;
 
@@ -25,6 +26,7 @@ public class PuzzleLights : PuzzlesFather
 
             if (!acceder)
             {
+                particulas.SetActive(false);
                 Destroy(GetComponent<PuzzleLights>());
             }
         }

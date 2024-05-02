@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class Hud : MonoBehaviour
@@ -11,11 +12,15 @@ public class Hud : MonoBehaviour
     [SerializeField] private GameObject ajustes;
     [SerializeField] private GameObject controles;
     [SerializeField] private GameObject controlesInicio;
+    [SerializeField] private GameObject creditos;
     [SerializeField] private GameObject salir;
+
+    private bool activado;
 
     void Start()
     {
         controlesInicio.SetActive(true);
+        activado = true;
         Cursor.lockState = CursorLockMode.Confined;
         Comunicador.canMove = false;
 
@@ -31,11 +36,12 @@ public class Hud : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape) && !activado)
         {
             ajustes.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;
             Comunicador.canMove = false;
+            activado = true;
         }
     }
 
@@ -45,13 +51,21 @@ public class Hud : MonoBehaviour
         controles.SetActive(true);
     }
 
+    public void Creditos()
+    {
+        ajustes.SetActive(false);
+        creditos.SetActive(true);
+    }
+
     public void Cerrar()
     {
         ajustes.SetActive(false);
         controles.SetActive(false);
+        creditos.SetActive(false);
         salir.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Comunicador.canMove = true;
+        activado = false;
     }
 
     public void Continuar()
@@ -59,6 +73,7 @@ public class Hud : MonoBehaviour
         controlesInicio.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Comunicador.canMove = true;
+        activado = false;
     }
 
     public void Salir()

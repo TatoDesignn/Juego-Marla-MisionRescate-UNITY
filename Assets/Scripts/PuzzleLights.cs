@@ -7,6 +7,9 @@ public class PuzzleLights : PuzzlesFather
 {
     [Header("Configuracion de las luces")]
     [SerializeField] private GameObject controladorLuces;
+    [SerializeField] private GameObject controles;
+
+    public bool acceder = true;
 
     public override void Interact()
     {
@@ -18,6 +21,12 @@ public class PuzzleLights : PuzzlesFather
         if(controladorLuces.activeInHierarchy)
         {
             controladorLuces.SetActive(false);
+            controles.SetActive(false);
+
+            if (!acceder)
+            {
+                Destroy(GetComponent<PuzzleLights>());
+            }
         }
     }
 }

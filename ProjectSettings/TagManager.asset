@@ -9,6 +9,8 @@ TagManager:
   - PointDoor
   - Pipe
   - GameManager
+  - PuzzleLight
+  - PuzzleDoor
   layers:
   - Default
   - TransparentFX

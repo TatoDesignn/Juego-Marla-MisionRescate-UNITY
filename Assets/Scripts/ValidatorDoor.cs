@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class ValidatorDoor : MonoBehaviour
 {
+    PuzzleDoor puzzle;
+
     [Space]
     [Header("Objetos validadores de la puerta: ")]
     public GameObject linea1;
     public GameObject linea2;
     public GameObject linea3;
     public GameObject linea4;
+    public GameObject controles;
 
     [Space]
     [Header("Configuracion de la Puerta")]
@@ -21,10 +24,16 @@ public class ValidatorDoor : MonoBehaviour
 
     private bool alreadyActivated = false; // Variable para evitar la reproducción repetida del sonido
 
+    private void Start()
+    {
+        puzzle = GameObject.FindGameObjectWithTag("PuzzleDoor").GetComponent<PuzzleDoor>();
+    }
+
     void Update()
     {
         if (linea1.activeInHierarchy && linea2.activeInHierarchy && linea3.activeInHierarchy && linea4.activeInHierarchy && !alreadyActivated)
         {
+            puzzle.acceder = false;
             StartCoroutine(PlaySoundAndActivateDoor());
         }
     }
@@ -41,5 +50,6 @@ public class ValidatorDoor : MonoBehaviour
         // Desactivar la puerta y la interfaz
         puerta.transform.Translate(puerta.transform.position.x, puerta.transform.position.y, -10.52f);
         interfaz.SetActive(false);
+        controles.SetActive(true);
     }
 }

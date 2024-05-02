@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ControllerLigth : MonoBehaviour
 {
+    PuzzleLights puzzle;
+
     [Space]
     [Header("Controlador de luz")]
     [SerializeField] private GameObject luces;
@@ -13,6 +15,7 @@ public class ControllerLigth : MonoBehaviour
     [SerializeField] private GameObject segunda;
     [SerializeField] private GameObject rectanguloLargo;
     [SerializeField] private GameObject palanca;
+    [SerializeField] private GameObject controles;
     [SerializeField] private float velocidad;
     [SerializeField] private AudioSource audioSource; // Referencia al componente AudioSource
     [SerializeField] private AudioClip apagarSound; // Sonido que se reproducirá al apagar el ControllerLigth
@@ -27,6 +30,7 @@ public class ControllerLigth : MonoBehaviour
 
     void Start()
     {
+        puzzle = GameObject.FindGameObjectWithTag("PuzzleLight").GetComponent<PuzzleLights>();
         audioSource = GetComponent<AudioSource>(); // Obtener el componente AudioSource del mismo GameObject
         if (audioSource == null)
         {
@@ -56,12 +60,14 @@ public class ControllerLigth : MonoBehaviour
     {
         // Desactivar o hacer invisible cada componente individualmente
         luces.SetActive(false);
+        controles.SetActive(true);
         puntoT.gameObject.SetActive(false);
         movimiento.gameObject.SetActive(false);
         primera.SetActive(false);
         segunda.SetActive(false);
         rectanguloLargo.SetActive(false);
         palanca.transform.eulerAngles = new Vector3(-160f, 0, -90);
+        controles.SetActive(true);
 
         // Reproducir el sonido al apagar el ControllerLigth
         if (audioSource != null && apagarSound != null) // Verificar si hay AudioSource y AudioClip asignados
@@ -100,6 +106,7 @@ public class ControllerLigth : MonoBehaviour
         }
         if (contador == 3)
         {
+            puzzle.acceder = false;
             StartCoroutine(ApagarConSonido()); // Iniciar la corrutina para apagar con sonido
         }
     }

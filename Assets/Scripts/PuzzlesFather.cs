@@ -27,7 +27,7 @@ public abstract class PuzzlesFather : MonoBehaviour
         }
         else
         {
-            Camera.main.transform.DOMove(previousLocation, 1f, false);
+            Camera.main.transform.DOMove(previousLocation, 0.5f, false);
             Camera.main.transform.DORotate(new Vector3(0f, 0f, 0f), 2f);
 
             Exit();

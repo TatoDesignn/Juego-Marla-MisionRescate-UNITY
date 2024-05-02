@@ -12,6 +12,7 @@ public class ControllerLigth : MonoBehaviour
     [SerializeField] private GameObject primera;
     [SerializeField] private GameObject segunda;
     [SerializeField] private GameObject rectanguloLargo;
+    [SerializeField] private GameObject palanca;
     [SerializeField] private float velocidad;
     [SerializeField] private AudioSource audioSource; // Referencia al componente AudioSource
     [SerializeField] private AudioClip apagarSound; // Sonido que se reproducirá al apagar el ControllerLigth
@@ -60,6 +61,7 @@ public class ControllerLigth : MonoBehaviour
         primera.SetActive(false);
         segunda.SetActive(false);
         rectanguloLargo.SetActive(false);
+        palanca.transform.eulerAngles = new Vector3(-160f, 0, -90);
 
         // Reproducir el sonido al apagar el ControllerLigth
         if (audioSource != null && apagarSound != null) // Verificar si hay AudioSource y AudioClip asignados

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8431388784688598838}
   - component: {fileID: 950642365214031258}
   - component: {fileID: 6162444661331688015}
+  - component: {fileID: 1434024443320962079}
   - component: {fileID: 2349395970968414762}
   - component: {fileID: 1808596599934401426}
   - component: {fileID: 4892777669376726799}
@@ -105,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37eaeb80c4c035e43b774a39e405ff63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MyAnimator: {fileID: 1434024443320962079}
   speed: 5
   mouseSensitivity: 50
   LookClamp: 45
@@ -124,6 +126,27 @@ MonoBehaviour:
   InteractRange: 2
   InteractView: 0
   Provisional: {fileID: 0}
+--- !u!95 &1434024443320962079
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335439955208038257}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de84adfbd76d31b40a1e7b6b0bff4dc0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!136 &2349395970968414762
 CapsuleCollider:
   m_ObjectHideFlags: 0

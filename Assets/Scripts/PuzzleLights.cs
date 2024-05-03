@@ -5,6 +5,7 @@ using UnityEngine.Analytics;
 
 public class PuzzleLights : PuzzlesFather
 {
+    Hud hud;
     [Header("Configuracion de las luces")]
     [SerializeField] private GameObject controladorLuces;
     [SerializeField] private GameObject controles;
@@ -14,12 +15,16 @@ public class PuzzleLights : PuzzlesFather
 
     public override void Interact()
     {
+        hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<Hud>();
+        hud.activado = true;
         controladorLuces.SetActive(true);
     }
 
     public override void Exit()
     {
-        if(controladorLuces.activeInHierarchy)
+        hud.activado = false;
+
+        if (controladorLuces.activeInHierarchy)
         {
             controladorLuces.SetActive(false);
             controles.SetActive(false);

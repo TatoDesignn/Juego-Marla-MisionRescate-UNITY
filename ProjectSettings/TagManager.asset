@@ -12,6 +12,7 @@ TagManager:
   - PuzzleLight
   - PuzzleDoor
   - Puerta
+  - HUD
   layers:
   - Default
   - TransparentFX

@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,12 @@ public class ControllerCamara : MonoBehaviour
 
     [Space]
     [Header("Variables locales:")]
-    private int camaraActiva = -1; 
+    private int camaraActiva = -1;
+
+    private void Start()
+    {
+        PhotonNetwork.AutomaticallySyncScene = true;
+    }
 
     void Update()
     {
@@ -23,12 +29,12 @@ public class ControllerCamara : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.A))
             {
-                camaras[camaraActiva].transform.Rotate(Vector3.up, -velocidad * Time.deltaTime);
+                camaras[camaraActiva].transform.Rotate(Vector3.up, -velocidad * Time.fixedDeltaTime);
                 ReproducirSonidoMovimiento();
             }
             else if (Input.GetKey(KeyCode.D))
             {
-                camaras[camaraActiva].transform.Rotate(Vector3.up, velocidad * Time.deltaTime);
+                camaras[camaraActiva].transform.Rotate(Vector3.up, velocidad * Time.fixedDeltaTime);
                 ReproducirSonidoMovimiento();
             }
         }

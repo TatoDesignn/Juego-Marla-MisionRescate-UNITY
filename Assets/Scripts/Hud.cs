@@ -15,7 +15,7 @@ public class Hud : MonoBehaviour
     [SerializeField] private GameObject creditos;
     [SerializeField] private GameObject salir;
 
-    private bool activado;
+    public bool activado;
 
     void Start()
     {

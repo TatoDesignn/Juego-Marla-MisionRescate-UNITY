@@ -19,19 +19,19 @@ public class ControllerCamara : MonoBehaviour
 
     void Update()
     {
-    if (camaraActiva != -1) 
-    {
-        if (Input.GetKey(KeyCode.A))
+        if (camaraActiva != -1) 
         {
-            camaras[camaraActiva].transform.Rotate(Vector3.up, -velocidad * Time.deltaTime);
-            ReproducirSonidoMovimiento();
+            if (Input.GetKey(KeyCode.A))
+            {
+                camaras[camaraActiva].transform.Rotate(Vector3.up, -velocidad * Time.deltaTime);
+                ReproducirSonidoMovimiento();
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                camaras[camaraActiva].transform.Rotate(Vector3.up, velocidad * Time.deltaTime);
+                ReproducirSonidoMovimiento();
+            }
         }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            camaras[camaraActiva].transform.Rotate(Vector3.up, velocidad * Time.deltaTime);
-            ReproducirSonidoMovimiento();
-        }
-    }
     }
 
     public void ActivarCamara(int indice)
@@ -40,8 +40,6 @@ public class ControllerCamara : MonoBehaviour
         {
             camaraActiva = indice;
         }
-
-        Debug.Log(camaraActiva);
     }
 
     private void ReproducirSonidoMovimiento()

@@ -85,7 +85,22 @@ public class Menu : MonoBehaviourPunCallbacks
 
     public void Conectar()
     {
-        PhotonNetwork.JoinOrCreateRoom("Sala1", new Photon.Realtime.RoomOptions { MaxPlayers = 2 }, null);
+        PhotonNetwork.JoinRoom("Sala1");
+    }
+
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        PhotonNetwork.CreateRoom("Sala1", new Photon.Realtime.RoomOptions { IsVisible = true, IsOpen = true, MaxPlayers = 2 }, null);
+    }
+
+    public override void OnJoinedRoom()
+    {
+        PhotonNetwork.LoadLevel(1);
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        PhotonNetwork.JoinRoom("Sala1");
     }
 
     public void Creditos()
@@ -114,11 +129,6 @@ public class Menu : MonoBehaviourPunCallbacks
             interfaces[2].SetActive(true);
             interfaces[6].SetActive(false);
         }
-    }
-
-    public override void OnJoinedRoom()
-    {
-        PhotonNetwork.LoadLevel(1);
     }
 
     public void Salir()

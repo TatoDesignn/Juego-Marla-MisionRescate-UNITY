@@ -13678,7 +13678,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2014584375}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 985286592}
+        m_TargetAssemblyTypeName: Hud, Assembly-CSharp
+        m_MethodName: Si
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2014584375
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,15 +25,15 @@ public class PuzzleLights : PuzzlesFather
         hud.activado = false;
         controles.SetActive(false);
 
+        if (!acceder)
+        {
+            particulas.SetActive(false);
+            Destroy(GetComponent<PuzzleLights>());
+        }
+
         if (controladorLuces.activeInHierarchy)
         {
             controladorLuces.SetActive(false);
-
-            if (!acceder)
-            {
-                particulas.SetActive(false);
-                Destroy(GetComponent<PuzzleLights>());
-            }
         }
     }
 }

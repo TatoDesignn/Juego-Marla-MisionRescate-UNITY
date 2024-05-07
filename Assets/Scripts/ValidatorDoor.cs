@@ -1,8 +1,9 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ValidatorDoor : MonoBehaviour
+public class ValidatorDoor : MonoBehaviourPun, IPunObservable
 {
     PuzzleDoor puzzle;
     Puerta puertaScript;
@@ -40,6 +41,12 @@ public class ValidatorDoor : MonoBehaviour
         }
     }
 
+    [PunRPC]
+    void RPC_Animacion()
+    {
+        puertaScript.Animar();
+    }
+
     IEnumerator PlaySoundAndActivateDoor()
     {
         // Reproducir el sonido de activación
@@ -50,9 +57,14 @@ public class ValidatorDoor : MonoBehaviour
         yield return new WaitForSeconds(activationSound.length);
 
         // Desactivar la puerta y la interfaz
-        puertaScript.Animar();
+        this.photonView.RPC("RPC_Animacion", RpcTarget.All);
 
         interfaz.SetActive(false);
         controles.SetActive(true);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        //throw new System.NotImplementedException();
     }
 }

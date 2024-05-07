@@ -5184,6 +5184,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7576046287935107319}
   - {fileID: 2000632885765549399}
   m_Father: {fileID: 8412339382980075521}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5504,6 +5505,9 @@ MonoBehaviour:
   PuzzleHolder: {fileID: 0}
   myCamera: {fileID: 3560098045826448174}
   controladorDoor: {fileID: 3163360402266047657}
+  controles: {fileID: 0}
+  particulas: {fileID: 0}
+  acceder: 1
 --- !u!1 &2499424980767379489
 GameObject:
   m_ObjectHideFlags: 0
@@ -6036,7 +6040,6 @@ RectTransform:
   - {fileID: 3741838916625524861}
   - {fileID: 7934652996983404315}
   - {fileID: 4977052797497600554}
-  - {fileID: 7576046287935107319}
   m_Father: {fileID: 1664911878440816642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -6886,12 +6889,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4966744360180352964}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000015258764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2000632885765549399}
+  m_Father: {fileID: 1664911878440816642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6914,6 +6917,7 @@ MonoBehaviour:
   linea2: {fileID: 9169003695170226650}
   linea3: {fileID: 726886706986293599}
   linea4: {fileID: 6657489661215679254}
+  controles: {fileID: 0}
   interfaz: {fileID: 3163360402266047657}
   puerta: {fileID: 0}
   audioSource: {fileID: 0}

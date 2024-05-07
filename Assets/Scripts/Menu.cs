@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Unity.VisualScripting;
 using System.Diagnostics;
 
@@ -13,12 +14,24 @@ public class Menu : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject canvasCompleto;
     [SerializeField] private GameObject hudCanvas;
     [SerializeField] private GameObject camara;
+    [SerializeField] private Button botonMarla;
+    [SerializeField] private Button botonJonno;
+
+    [Space]
+    [Header("Personaje Seleccionado:")]
     private bool marla = false;
+    private bool actualizarMarla = false;
     private bool jonno = false;
+    private bool actualizarJonno = false;
+
+    [Space]
+    [Header("Ventana/ubicacion:")]
     private bool inicio = true;
     private bool sala = false;
     private bool seleccion = false;
 
+    [Space]
+    [Header("Configurar sala:")]
     private bool unio = false;
     private bool crear = false;
 
@@ -26,6 +39,18 @@ public class Menu : MonoBehaviourPunCallbacks
     {
         interfaces[0].SetActive(true);
         interfaces[5].SetActive(true);
+    }
+
+    private void Update()
+    {
+        if (actualizarMarla && seleccion)
+        {
+            interfaces[13].SetActive(true);
+        }
+        else if (actualizarJonno && seleccion)
+        {
+            interfaces[14].SetActive(true);
+        }
     }
 
     public void BotonIncio()
@@ -56,6 +81,7 @@ public class Menu : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinOrCreateRoom("misionrescate", new Photon.Realtime.RoomOptions { IsVisible = true, IsOpen = true, MaxPlayers = 3 }, default);
         crear = true;
         unio = false;
+        interfaces[16].SetActive(false);
     }
 
     public void Unirse()
@@ -63,13 +89,13 @@ public class Menu : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom("misionrescate");
         unio = true;
         crear = false;
+        interfaces[16].SetActive(false);
     }
 
     public override void OnJoinedRoom()
     {
         interfaces[8].SetActive(false);
         sala = false;
-        seleccion = true;
 
         if (crear)
         {
@@ -93,6 +119,8 @@ public class Menu : MonoBehaviourPunCallbacks
         interfaces[9].SetActive(false);
         interfaces[10].SetActive(false);
         interfaces[2].SetActive(true);
+        interfaces[16].SetActive(true);
+        seleccion = true;
     }
 
     public void ContinuarFallo()
@@ -103,18 +131,72 @@ public class Menu : MonoBehaviourPunCallbacks
 
     public void Marla()
     {
-        Comunicador.valor = 0;
-        interfaces[3].SetActive(true);
-        marla = true;
-        jonno = false;
+        if (!actualizarMarla)
+        {
+            marla = true;
+            botonJonno.interactable = false;
+            interfaces[3].SetActive(true);
+            interfaces[15].SetActive(true);
+            Comunicador.valor = 0;
+            photonView.RPC("RPC_Marla", RpcTarget.AllBuffered);
+        }
+    }
+
+    [PunRPC]
+    void RPC_Marla()
+    {
+        actualizarMarla = true;
+
+        if(seleccion)
+        {
+            interfaces[13].SetActive(true);
+        }
     }
 
     public void Jonno()
     {
-        Comunicador.valor = 1;
-        interfaces[3].SetActive(true);
-        jonno = true;
+        if (!actualizarJonno)
+        {
+            jonno = true;
+            botonMarla.interactable = false;
+            interfaces[3].SetActive(true);
+            interfaces[15].SetActive(true);
+            Comunicador.valor = 1;
+            photonView.RPC("RPC_Jonno", RpcTarget.AllBuffered);
+        }
+    }
+
+    [PunRPC]
+    void RPC_Jonno()
+    {
+        actualizarJonno = true;
+
+        if (seleccion)
+        {
+            interfaces[14].SetActive(true);
+        }
+    }
+
+    public void Restablecer()
+    {
+        photonView.RPC("RPC_Quitar", RpcTarget.AllBuffered);
+    }
+
+    [PunRPC]
+    void RPC_Quitar()
+    {
+        jonno = false;
         marla = false;
+        actualizarMarla = false;
+        actualizarJonno = false;
+        botonMarla.interactable = false;
+        botonJonno.interactable = false;
+        botonMarla.interactable = true;
+        botonJonno.interactable = true;
+        interfaces[3].SetActive(false);
+        interfaces[15].SetActive(false);
+        interfaces[13].SetActive(false);
+        interfaces[14].SetActive(false);
     }
 
     public void Buscar()
@@ -173,10 +255,16 @@ public class Menu : MonoBehaviourPunCallbacks
         }
         else if(seleccion)
         {
+            jonno = false;
+            marla = false;
+            actualizarMarla = false;
+            actualizarJonno = false;
             interfaces[2].SetActive(false);
             interfaces[6].SetActive(true);
             interfaces[9].SetActive(false);
             interfaces[10].SetActive(false);
+            interfaces[13].SetActive(false);
+            interfaces[14].SetActive(false);
         }
     }
 
@@ -214,10 +302,16 @@ public class Menu : MonoBehaviourPunCallbacks
         }
         else if (seleccion)
         {
+            jonno = false;
+            marla = false;
+            actualizarMarla = false;
+            actualizarJonno = false;
             interfaces[2].SetActive(false);
             interfaces[12].SetActive(true);
             interfaces[9].SetActive(false);
             interfaces[10].SetActive(false);
+            interfaces[13].SetActive(false);
+            interfaces[14].SetActive(false);
         }
     }
 

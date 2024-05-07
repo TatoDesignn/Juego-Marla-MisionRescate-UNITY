@@ -24,7 +24,7 @@ public class ControllerStoryBoard : MonoBehaviour
         if (ControllerStoryBoard.Instance == null)
         {
             ControllerStoryBoard.Instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
         }
         else
         {

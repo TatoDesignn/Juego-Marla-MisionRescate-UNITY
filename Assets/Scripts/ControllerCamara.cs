@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllerCamara : MonoBehaviour
+public class ControllerCamara : MonoBehaviourPun
 {
     [Space]
     [Header("Configuraci�n de las c�maras:")]
@@ -13,30 +13,34 @@ public class ControllerCamara : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip sonidoMovimiento;
 
+    public bool activo = false;
 
     [Space]
     [Header("Variables locales:")]
     private int camaraActiva = -1;
 
-    private void Start()
-    {
-        PhotonNetwork.AutomaticallySyncScene = true;
-    }
-
     void Update()
     {
-        if (camaraActiva != -1) 
+        if (activo)
         {
             if (Input.GetKey(KeyCode.A))
             {
-                camaras[camaraActiva].transform.Rotate(Vector3.up, -velocidad * Time.fixedDeltaTime);
-                ReproducirSonidoMovimiento();
+                photonView.RPC("RotateCameraRPC", RpcTarget.All, -velocidad * Time.fixedDeltaTime, camaraActiva);
             }
             else if (Input.GetKey(KeyCode.D))
             {
-                camaras[camaraActiva].transform.Rotate(Vector3.up, velocidad * Time.fixedDeltaTime);
-                ReproducirSonidoMovimiento();
+                photonView.RPC("RotateCameraRPC", RpcTarget.All, velocidad * Time.fixedDeltaTime, camaraActiva);
             }
+        }
+    }
+
+    [PunRPC]
+    void RotateCameraRPC(float amount, int activeCameraIndex)
+    {
+        if (activeCameraIndex >= 0 && activeCameraIndex < camaras.Length)
+        {
+            camaras[activeCameraIndex].transform.Rotate(Vector3.up, amount);
+            ReproducirSonidoMovimiento();
         }
     }
 

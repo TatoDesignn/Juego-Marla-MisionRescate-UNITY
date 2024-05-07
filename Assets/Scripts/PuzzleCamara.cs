@@ -5,11 +5,16 @@ using UnityEngine.InputSystem.HID;
 
 public class PuzzleCamara : PuzzlesFather
 {
+    public ControllerCamara controller;
+
     Hud hud;
     [Header("Configuracion de las camaras")]
     [SerializeField] private GameObject controladorCamaras;
+
+
     public override void Interact()
     {
+        controller.activo = true;
         hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<Hud>();
         hud.activado = true;
         Invoke("Activar", 2f);
@@ -17,9 +22,11 @@ public class PuzzleCamara : PuzzlesFather
 
     public override void Exit()
     {
+        controller.activo = false;
         hud.activado = false;
         Cursor.lockState = CursorLockMode.Locked;
         controladorCamaras.SetActive(false);
+        
     }
 
     private void Activar()

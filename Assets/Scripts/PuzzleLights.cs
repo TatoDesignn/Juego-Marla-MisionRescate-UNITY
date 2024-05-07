@@ -23,11 +23,11 @@ public class PuzzleLights : PuzzlesFather
     public override void Exit()
     {
         hud.activado = false;
+        controles.SetActive(false);
 
         if (controladorLuces.activeInHierarchy)
         {
             controladorLuces.SetActive(false);
-            controles.SetActive(false);
 
             if (!acceder)
             {

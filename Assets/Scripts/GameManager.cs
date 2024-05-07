@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private void Awake()
+    {
+        //PhotonNetwork.AutomaticallySyncScene = true;
+    }
 
     private void Start()
     {
-        Personajes();
+        //Personajes();
     }
 
     public void Personajes()

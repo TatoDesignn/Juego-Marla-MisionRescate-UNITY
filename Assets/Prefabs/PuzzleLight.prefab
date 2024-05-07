@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6797692927114651832
 Transform:
   m_ObjectHideFlags: 0
@@ -29,8 +29,7 @@ Transform:
   m_LocalPosition: {x: -166.72583, y: -0.00018310547, z: -7.4836426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5066020693257969763}
+  m_Children: []
   m_Father: {fileID: 5643635947222412210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7623910607627868947
@@ -52,6 +51,7 @@ MonoBehaviour:
   segunda: {fileID: 0}
   rectanguloLargo: {fileID: 0}
   palanca: {fileID: 0}
+  controles: {fileID: 0}
   velocidad: 1
   audioSource: {fileID: 0}
   apagarSound: {fileID: 0}
@@ -82,18 +82,18 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201048616399577903}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7.483664}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000021457672}
   m_LocalScale: {x: 8.9735, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5185599202760237205}
   - {fileID: 2823817818912449844}
   - {fileID: 4255227017379588883}
-  m_Father: {fileID: 6797692927114651832}
+  m_Father: {fileID: 5643635947222412210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 214, y: 47}
+  m_AnchoredPosition: {x: 47.274292, y: 46.999817}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1609161090476750658
@@ -5391,6 +5391,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6797692927114651832}
+  - {fileID: 5066020693257969763}
   m_Father: {fileID: 6876199062661068002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6162,6 +6163,9 @@ MonoBehaviour:
   PuzzleHolder: {fileID: 0}
   myCamera: {fileID: 3414121347756464270}
   controladorLuces: {fileID: 71954982389896084}
+  controles: {fileID: 0}
+  particulas: {fileID: 0}
+  acceder: 1
 --- !u!1001 &6775475700142336743
 PrefabInstance:
   m_ObjectHideFlags: 0

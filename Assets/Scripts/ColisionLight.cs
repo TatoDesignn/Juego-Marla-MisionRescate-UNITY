@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColisionLight : MonoBehaviour
 {
-    ControllerLigth controller;
+    public ControllerLigth controller;
 
     [Space]
     [Header("Variables locales:")]
@@ -12,7 +12,7 @@ public class ColisionLight : MonoBehaviour
 
     private void Start()
     {
-        controller = GetComponentInParent<ControllerLigth>();
+        //controller = GetComponentInParent<ControllerLigth>();
     }
 
     private void Update()

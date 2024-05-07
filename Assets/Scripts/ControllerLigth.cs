@@ -1,8 +1,9 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllerLigth : MonoBehaviour
+public class ControllerLigth : MonoBehaviourPun, IPunObservable
 {
     PuzzleLights puzzle;
 
@@ -59,7 +60,7 @@ public class ControllerLigth : MonoBehaviour
     private IEnumerator ApagarConSonido()
     {
         // Desactivar o hacer invisible cada componente individualmente
-        luces.SetActive(false);
+        
         controles.SetActive(true);
         puntoT.gameObject.SetActive(false);
         movimiento.gameObject.SetActive(false);
@@ -78,6 +79,12 @@ public class ControllerLigth : MonoBehaviour
 
         // Desactivar el objeto después de que el sonido haya terminado
         gameObject.SetActive(false);
+    }
+
+    [PunRPC]
+    void RPC_ApagarLuces()
+    {
+        Destroy(luces);
     }
 
     public void Correctas()
@@ -107,7 +114,13 @@ public class ControllerLigth : MonoBehaviour
         if (contador == 3)
         {
             puzzle.acceder = false;
+            this.photonView.RPC("RPC_ApagarLuces", RpcTarget.All);
             StartCoroutine(ApagarConSonido()); // Iniciar la corrutina para apagar con sonido
         }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        //throw new System.NotImplementedException();
     }
 }

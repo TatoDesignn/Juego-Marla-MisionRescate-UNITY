@@ -16,6 +16,7 @@ public class Menu : MonoBehaviourPunCallbacks
     private bool marla = false;
     private bool jonno = false;
     private bool inicio = true;
+    private bool sala = false;
     private bool seleccion = false;
 
     private bool unio = false;
@@ -32,7 +33,7 @@ public class Menu : MonoBehaviourPunCallbacks
         interfaces[0].SetActive(false);
         interfaces[1].SetActive(true);
         inicio = false;
-        seleccion = true;
+        sala = true;
         IniciarPhoton();
     }
 
@@ -67,6 +68,8 @@ public class Menu : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         interfaces[8].SetActive(false);
+        sala = false;
+        seleccion = true;
 
         if (crear)
         {
@@ -162,10 +165,18 @@ public class Menu : MonoBehaviourPunCallbacks
             interfaces[0].SetActive(false);
             interfaces[6].SetActive(true);
         }
+        else if (sala)
+        {
+            interfaces[8].SetActive(false);
+            interfaces[6].SetActive(true);
+            interfaces[11].SetActive(false);
+        }
         else if(seleccion)
         {
             interfaces[2].SetActive(false);
             interfaces[6].SetActive(true);
+            interfaces[9].SetActive(false);
+            interfaces[10].SetActive(false);
         }
     }
 
@@ -176,6 +187,11 @@ public class Menu : MonoBehaviourPunCallbacks
             interfaces[0].SetActive(true);
             interfaces[6].SetActive(false);
         }
+        else if (sala)
+        {
+            interfaces[8].SetActive(true);
+            interfaces[6].SetActive(false);
+        }
         else if (seleccion)
         {
             interfaces[2].SetActive(true);
@@ -184,6 +200,47 @@ public class Menu : MonoBehaviourPunCallbacks
     }
 
     public void Salir()
+    {
+        if (inicio)
+        {
+            interfaces[0].SetActive(false);
+            interfaces[12].SetActive(true);
+        }
+        else if (sala)
+        {
+            interfaces[8].SetActive(false);
+            interfaces[12].SetActive(true);
+            interfaces[11].SetActive(false);
+        }
+        else if (seleccion)
+        {
+            interfaces[2].SetActive(false);
+            interfaces[12].SetActive(true);
+            interfaces[9].SetActive(false);
+            interfaces[10].SetActive(false);
+        }
+    }
+
+    public void No()
+    {
+        if (inicio)
+        {
+            interfaces[0].SetActive(true);
+            interfaces[12].SetActive(false);
+        }
+        else if (sala)
+        {
+            interfaces[8].SetActive(true);
+            interfaces[12].SetActive(false);
+        }
+        else if (seleccion)
+        {
+            interfaces[2].SetActive(true);
+            interfaces[12].SetActive(false);
+        }
+    }
+
+    public void Si()
     {
         Application.Quit();
     }

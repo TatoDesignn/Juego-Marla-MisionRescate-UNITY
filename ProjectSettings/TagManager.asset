@@ -13,6 +13,7 @@ TagManager:
   - PuzzleDoor
   - Puerta
   - HUD
+  - ObjetoEspecifico
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Water
   - UI
   - PointEnemy
-  - 
+  - ObjetoEspecifico
   - 
   - 
   - 

@@ -44,22 +44,27 @@ public class TurningPipes : PuzzlesFather
 
     private void ChangePipe(int dir)
     {
-        RotatingPipes[index].color = Color.white;
-        if(dir < 0)
+        if(this.PuzzleHolder == isActiveAndEnabled)
         {
-            if(index > 0)
+            RotatingPipes[index].color = Color.white;
+            if(dir < 0)
             {
-                index--;
+                if(index > 0)
+                {
+                    index--;
+                }
             }
+            else
+            {
+                if (index < RotatingPipes.Length-1) 
+                {
+                    index++;
+                }
+            }
+            RotatingPipes[index].color = Color.gray;
         }
         else
-        {
-            if (index < RotatingPipes.Length-1) 
-            {
-                index++;
-            }
-        }
-        RotatingPipes[index].color = Color.gray;
+            return;
     }
 
     private void RotatePipe()

@@ -2269,7 +2269,7 @@ GameObject:
   - component: {fileID: 5163437013994272688}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2978,8 +2978,9 @@ MonoBehaviour:
   MyAnimator: {fileID: 0}
   speed: 1
   mouseSensitivity: 50
-  LookClamp: 30
+  LookClamp: 45
   isInteracting: 0
+  MyCamera: {fileID: 9104220381902443052}
 --- !u!114 &6500273494580967919
 MonoBehaviour:
   m_ObjectHideFlags: 0

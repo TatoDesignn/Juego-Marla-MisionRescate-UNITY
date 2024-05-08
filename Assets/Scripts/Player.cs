@@ -17,6 +17,7 @@ public class Player : MonoBehaviourPunCallbacks
     public bool isInteracting = false;
 
     [Header("Variables locales")]
+    [SerializeField] Camera MyCamera;
     private float xRotation;
 
     [Header("New Input System")]
@@ -24,8 +25,9 @@ public class Player : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        medidorAnimator = GameObject.FindGameObjectWithTag("Medidor").GetComponent<Animator>();
-
+        /*
+        //medidorAnimator = GameObject.FindGameObjectWithTag("Medidor").GetComponent<Animator>();
+        */
         inputManager = InputManager.Instance;
         rb = GetComponent<Rigidbody>();
         MyAnimator = GetComponent<Animator>();
@@ -50,7 +52,7 @@ public class Player : MonoBehaviourPunCallbacks
                 xRotation = Mathf.Clamp(xRotation, -LookClamp, LookClamp);
 
                 //Move Camera
-                Camera.main.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+                MyCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
                 transform.Rotate(Vector3.up * move.x);
 
             }

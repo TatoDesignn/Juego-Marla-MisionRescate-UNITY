@@ -2384,8 +2384,9 @@ MonoBehaviour:
   MyAnimator: {fileID: 0}
   speed: 1
   mouseSensitivity: 50
-  LookClamp: 45
+  LookClamp: 150
   isInteracting: 0
+  MyCamera: {fileID: 9047321078577461231}
 --- !u!114 &3188377169513770170
 MonoBehaviour:
   m_ObjectHideFlags: 0

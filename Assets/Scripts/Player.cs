@@ -7,6 +7,7 @@ public class Player : MonoBehaviourPunCallbacks
 {
     private Rigidbody rb;
     public Animator MyAnimator;
+    Animator medidorAnimator;
 
     [Space]
     [Header("Configuracion de Movimiento")]
@@ -23,6 +24,8 @@ public class Player : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        medidorAnimator = GameObject.FindGameObjectWithTag("Medidor").GetComponent<Animator>();
+
         inputManager = InputManager.Instance;
         rb = GetComponent<Rigidbody>();
         MyAnimator = GetComponent<Animator>();
@@ -76,6 +79,22 @@ public class Player : MonoBehaviourPunCallbacks
                 //Move
                 rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("CamaraSensor") || other.CompareTag("LucesDeteccion"))
+        {
+            medidorAnimator.SetTrigger("Cargar");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("CamaraSensor") || other.CompareTag("LucesDeteccion"))
+        {
+            medidorAnimator.SetTrigger("Reanudar");
         }
     }
 }

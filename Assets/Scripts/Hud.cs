@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -14,6 +15,7 @@ public class Hud : MonoBehaviour
     [SerializeField] private GameObject controlesInicio;
     [SerializeField] private GameObject creditos;
     [SerializeField] private GameObject salir;
+    [SerializeField] private GameObject perder;
 
     public bool activado;
 
@@ -36,7 +38,7 @@ public class Hud : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape) && !activado)
+        if (Input.GetKey(KeyCode.Escape) && !activado && !perder.activeInHierarchy)
         {
             ajustes.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;
@@ -85,5 +87,12 @@ public class Hud : MonoBehaviour
     public void Si()
     {
         Application.Quit();
+    }
+
+    public void Regresar()
+    {
+        Comunicador.canMove = true;
+        PhotonNetwork.Disconnect();
+        PhotonNetwork.LoadLevel(0);
     }
 }

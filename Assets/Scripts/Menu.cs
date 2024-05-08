@@ -37,6 +37,7 @@ public class Menu : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         interfaces[0].SetActive(true);
         interfaces[5].SetActive(true);
     }
@@ -226,7 +227,10 @@ public class Menu : MonoBehaviourPunCallbacks
     }
     public void Conectar()
     {
-        if(marla)
+        hudCanvas.SetActive(true);
+        camara.SetActive(false);
+
+        if (marla)
         {
             PhotonNetwork.Instantiate("marla", new Vector3(-22.62f, -4.15f, 8.84f), Quaternion.identity, 0);
         }
@@ -235,8 +239,7 @@ public class Menu : MonoBehaviourPunCallbacks
             PhotonNetwork.Instantiate("jonno", new Vector3(-18.98f, 7.16f, 37.44f), Quaternion.identity, 0);
         }
 
-        hudCanvas.SetActive(true);
-        camara.SetActive(false);
+
         canvasCompleto.SetActive(false);
     }
 

@@ -2269,7 +2269,7 @@ GameObject:
   - component: {fileID: 5163437013994272688}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2282,9 +2282,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5017942462066853145}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.123290636, y: -0.00000002494755, z: 0.00000018086448, w: 0.99237067}
-  m_LocalPosition: {x: 0, y: 0.0012766932, z: -0.00009273022}
-  m_LocalScale: {x: 0.01, y: 0.010000002, z: 0.009999998}
+  m_LocalRotation: {x: -0.12329067, y: -0.000000024945601, z: 0.000000180865, w: 0.9923706}
+  m_LocalPosition: {x: 0, y: 0.0012767022, z: -0.000092732604}
+  m_LocalScale: {x: 0.01, y: 0.010000001, z: 0.009999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1407995376783368256}
@@ -2993,6 +2993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e2709c34c339748914023fa8ec7948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MyCamera: {fileID: 9104220381902443052}
   InteractRange: 2
   InteractView: 0
   Provisional: {fileID: 0}

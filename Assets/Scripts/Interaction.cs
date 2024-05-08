@@ -7,6 +7,7 @@ using Photon.Pun.UtilityScripts;
 
 public class Interaction : MonoBehaviourPunCallbacks
 {
+    [SerializeField] Camera MyCamera;
     private InputControl control;
     private Rigidbody rb;
     [SerializeField] private float InteractRange;
@@ -79,6 +80,13 @@ public class Interaction : MonoBehaviourPunCallbacks
                     interactObj.ChangeCamera(true);
                     player.isInteracting = true;
                     player.enabled = false;
+                }
+                else if(hit.collider.gameObject.TryGetComponent(out Vent_JonnoEntrance component))
+                {
+                    player.isInteracting = true;
+                    player.enabled = false;
+                    component.Interact(MyCamera,this.gameObject);
+                    StartCoroutine("BackToNormalView");
                 }
             }
         }

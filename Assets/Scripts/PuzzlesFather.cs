@@ -7,7 +7,7 @@ public abstract class PuzzlesFather : MonoBehaviour
 {
     [SerializeField] Material[] Materials;
     [SerializeField] protected GameObject PuzzleHolder;
-    [SerializeField] GameObject myCamera;
+    [SerializeField] protected GameObject myCamera;
     private Material myMaterial;
     private Vector3 previousLocation;
 

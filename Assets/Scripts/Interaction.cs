@@ -71,7 +71,7 @@ public class Interaction : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
-            Ray r = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+            Ray r = new Ray(MyCamera.transform.position, MyCamera.transform.forward);
             if(Physics.Raycast(r, out RaycastHit hit, InteractRange) ) 
             {
                 if(hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
@@ -97,7 +97,7 @@ public class Interaction : MonoBehaviourPunCallbacks
         {
             if(player.isInteracting)
             {
-                Ray r = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+                Ray r = new Ray(MyCamera.transform.position, MyCamera.transform.forward);
                 if (Physics.Raycast(r, out RaycastHit hit, InteractRange))
                 {
                     if (hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))

@@ -3726,6 +3726,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2587789299616887540}
+  - {fileID: 7829718584155330499}
   - {fileID: 1990778969895118409}
   - {fileID: 7322019222189286773}
   - {fileID: 2694214191372353447}
@@ -3843,9 +3844,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e2709c34c339748914023fa8ec7948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyCamera: {fileID: 0}
-  InteractRange: 2
+  InteractRange: 10
   InteractView: 0
+  objetoRay: {fileID: 8837212584452429745}
   Provisional: {fileID: 0}
 --- !u!114 &2032434053189484486
 MonoBehaviour:
@@ -4159,6 +4160,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6509211940410721354}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8837212584452429745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7829718584155330499}
+  m_Layer: 0
+  m_Name: Ray
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7829718584155330499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8837212584452429745}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.358, z: 0.134}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7426576239961405143}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8838693589110979047
 GameObject:

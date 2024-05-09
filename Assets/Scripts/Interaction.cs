@@ -7,11 +7,11 @@ using Photon.Pun.UtilityScripts;
 
 public class Interaction : MonoBehaviourPunCallbacks
 {
-    [SerializeField] Camera MyCamera;
     private InputControl control;
     private Rigidbody rb;
     [SerializeField] private float InteractRange;
     [SerializeField] private float InteractView;
+    [SerializeField] private GameObject objetoRay;
     private Player player;
 
     [SerializeField] Canvas Provisional;
@@ -25,7 +25,7 @@ public class Interaction : MonoBehaviourPunCallbacks
         rb = GetComponent<Rigidbody>();
         player = GetComponent<Player>();
     }
-    new private void OnEnable() 
+    new private void OnEnable()
     {
         if (photonView.IsMine)
         {
@@ -39,9 +39,9 @@ public class Interaction : MonoBehaviourPunCallbacks
     }
 
 
-    new private void OnDisable() 
+    new private void OnDisable()
     {
-        if(photonView.IsMine)
+        if (photonView.IsMine)
         {
             control.PlayerActions.Interact.performed -= Interact;
             control.PlayerActions.Uninteract.performed -= ExitInteraction;
@@ -49,55 +49,39 @@ public class Interaction : MonoBehaviourPunCallbacks
         }
     }
 
-    /*private void Update()
+    private void Interact(InputAction.CallbackContext A)
     {
         if (photonView.IsMine)
         {
-            Debug.DrawRay(rb.position, rb.transform.forward, Color.green ,InteractView);
-            Ray r = new Ray(rb.position, rb.transform.forward);
-            if (Physics.Raycast(r, out RaycastHit hit, InteractView))
+            Vector3 rayOrigin = objetoRay.transform.position;
+            Vector3 rayDirection = objetoRay.transform.forward;
+
+            Ray r = new Ray(rayOrigin, rayDirection);
+
+            if (Physics.Raycast(r, out RaycastHit hit, InteractRange))
             {
                 if (hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
-                {
-                    Provisional.enabled = true;
-                }
-                else Provisional.enabled = false;
-            }
-        }
-    }*/
-
-
-    private void Interact(InputAction.CallbackContext A) 
-    {
-        if (photonView.IsMine)
-        {
-            Ray r = new Ray(MyCamera.transform.position, MyCamera.transform.forward);
-            if(Physics.Raycast(r, out RaycastHit hit, InteractRange) ) 
-            {
-                if(hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
                 {
                     interactObj.enabled = true;
                     interactObj.ChangeCamera(true);
                     player.isInteracting = true;
                     player.enabled = false;
                 }
-                else if(hit.collider.gameObject.TryGetComponent(out Vent_JonnoEntrance component))
-                {
-                    player.isInteracting = true;
-                    player.enabled = false;
-                    component.Interact(MyCamera,this.gameObject);
-                    StartCoroutine("BackToNormalView");
-                }
             }
         }
     }
+
     private void ExitInteraction(InputAction.CallbackContext context)
     {
         if (photonView.IsMine)
         {
-            if(player.isInteracting)
+            if (player.isInteracting)
             {
-                Ray r = new Ray(MyCamera.transform.position, MyCamera.transform.forward);
+                Vector3 rayOrigin = objetoRay.transform.position;
+                Vector3 rayDirection = objetoRay.transform.forward;
+
+                Ray r = new Ray(rayOrigin, rayDirection);
+
                 if (Physics.Raycast(r, out RaycastHit hit, InteractRange))
                 {
                     if (hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
@@ -110,18 +94,6 @@ public class Interaction : MonoBehaviourPunCallbacks
             }
         }
     }
-
-    /*private void isCrouching(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            player.MyAnimator.SetBool("isCrouching", true);
-        }
-        else if (context.canceled)
-        {
-            player.MyAnimator.SetBool("isCrouching", false);
-        }
-    }*/
 
     private IEnumerator BackToNormalView()
     {

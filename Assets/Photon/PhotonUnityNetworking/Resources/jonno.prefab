@@ -110,6 +110,9 @@ MonoBehaviour:
   mouseSensitivity: 50
   LookClamp: 45
   isInteracting: 0
+  MyCamera: {fileID: 216925331505838469}
+  camaraTransform: {fileID: 784361509528657516}
+  camaraAgachado: {x: 0, y: 0, z: 0}
 --- !u!114 &6162444661331688015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e2709c34c339748914023fa8ec7948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MyCamera: {fileID: 0}
   InteractRange: 2
   InteractView: 0
   Provisional: {fileID: 0}

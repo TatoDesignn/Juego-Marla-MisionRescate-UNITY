@@ -236,7 +236,7 @@ public class Menu : MonoBehaviourPunCallbacks
         }
         else if(jonno)
         {
-            PhotonNetwork.Instantiate("jonno", new Vector3(-18.98f, 7.16f, 37.44f), Quaternion.identity, 0);
+            PhotonNetwork.Instantiate("JonnoCompleta", new Vector3(-18.98f, 7.16f, 37.44f), Quaternion.identity, 0);
         }
 
 

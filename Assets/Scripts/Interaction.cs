@@ -95,6 +95,18 @@ public class Interaction : MonoBehaviourPunCallbacks
         }
     }
 
+    private void OnDrawGizmos()
+    {
+
+        // Configurar el color del gizmo
+        Gizmos.color = Color.red;
+
+        // Dibujar el rayo desde objetoRay en la dirección hacia adelante
+        Vector3 rayOrigin = objetoRay.transform.position;
+        Vector3 rayDirection = objetoRay.transform.forward;
+        Gizmos.DrawRay(rayOrigin, rayDirection * InteractRange);
+    }
+
     private IEnumerator BackToNormalView()
     {
         player.isInteracting = false;

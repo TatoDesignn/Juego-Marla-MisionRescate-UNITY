@@ -10,6 +10,7 @@ public class PuzzleDoor : PuzzlesFather
     [SerializeField] private GameObject controladorDoor;
     [SerializeField] private GameObject controles;
     [SerializeField] private GameObject particulas;
+    [SerializeField] private GameObject medidor;
 
     public bool acceder = true;
 
@@ -19,6 +20,7 @@ public class PuzzleDoor : PuzzlesFather
         hud.activado = true;
         Cursor.lockState = CursorLockMode.Confined;
         controladorDoor.SetActive(true);
+        medidor.SetActive(false);
     }
 
     public override void Exit()
@@ -27,8 +29,8 @@ public class PuzzleDoor : PuzzlesFather
         Cursor.lockState = CursorLockMode.Locked;
         controladorDoor.SetActive(false);
         controles.SetActive(false);
-
-        if(!acceder)
+        medidor.SetActive(true);
+        if (!acceder)
         {
             particulas.SetActive(false);
             Destroy(GetComponent<PuzzleDoor>());

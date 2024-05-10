@@ -7005,6 +7005,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2379049206212407747, guid: 34664a53962abee488bf8d6dd11826bc,
         type: 3}
+      propertyPath: medidor
+      value: 
+      objectReference: {fileID: 2033040399}
+    - target: {fileID: 2379049206212407747, guid: 34664a53962abee488bf8d6dd11826bc,
+        type: 3}
       propertyPath: controles
       value: 
       objectReference: {fileID: 1256336560}
@@ -18171,7 +18176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2033040400
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18930,6 +18935,7 @@ MonoBehaviour:
   PuzzleHolder: {fileID: 0}
   myCamera: {fileID: 774183082}
   controller: {fileID: 43646351}
+  medidor: {fileID: 2033040399}
   controladorCamaras: {fileID: 983213650}
 --- !u!1001 &2127907371
 PrefabInstance:

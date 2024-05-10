@@ -232,7 +232,7 @@ public class Menu : MonoBehaviourPunCallbacks
 
         if (marla)
         {
-            PhotonNetwork.Instantiate("marla", new Vector3(-22.62f, -4.15f, 8.84f), Quaternion.identity, 0);
+            PhotonNetwork.Instantiate("MarlaCompleta", new Vector3(-22.62f, -4.15f, 8.84f), Quaternion.identity, 0);
         }
         else if(jonno)
         {

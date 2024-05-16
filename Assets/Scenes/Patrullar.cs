@@ -1,3 +1,5 @@
+using DG.Tweening;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Patrullar : MonoBehaviour
@@ -5,25 +7,26 @@ public class Patrullar : MonoBehaviour
     [SerializeField] private float velocidadMovimiento;
     [SerializeField] private Transform[] puntosMovimiento;
     [SerializeField] private float distanciaMinima;
-    [SerializeField] private float tiempoQuieto = 5f; 
+    [SerializeField] private float tiempoQuieto; 
     [SerializeField] private GameObject icono;
-    private int siguientePaso = 0;
-    private Renderer renderer;
-    private bool estaQuieto = false;
+    private int siguientePaso;
+    new Renderer renderer;
+    private bool estaQuieto = true;
     private float tiempoInicioQuieto;
 
     private void Start()
     {
         siguientePaso = Random.Range(0, puntosMovimiento.Length);
         renderer = GetComponent<Renderer>();
-        Girar();
+        siguientePaso = 0;
     }
 
     private void Update()
     {
         if (estaQuieto)
         {
-            if (Time.time - tiempoInicioQuieto >= tiempoQuieto)
+            tiempoInicioQuieto -= Time.deltaTime;
+            if (tiempoInicioQuieto <=0)
             {
                 estaQuieto = false;
                 tiempoInicioQuieto = 0f;
@@ -38,52 +41,18 @@ public class Patrullar : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, puntosMovimiento[siguientePaso].position, velocidadMovimiento * Time.deltaTime);
         
-        if(Vector3.Distance(transform.position, puntosMovimiento[siguientePaso].position) < distanciaMinima)
+        
+        if(Vector3.Distance(this.transform.position, puntosMovimiento[siguientePaso].position) <= distanciaMinima)
         {
+            transform.DOLookAt(puntosMovimiento[siguientePaso].position, tiempoQuieto/1.5f);
+            //transform.LookAt(puntosMovimiento[siguientePaso].position);
+            estaQuieto = true;
             siguientePaso++;
             if(siguientePaso >= puntosMovimiento.Length)
             {
                 siguientePaso = 0;
             }
-            Girar();
-        }
-
-        // Realizar el raycast
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity))
-        {
-            
-            if (hit.collider.CompareTag("ObjetoEspecifico"))
-            {
-                icono.SetActive(true);
-                estaQuieto = true;
-                tiempoInicioQuieto = Time.time;
-            }
-            else
-            {
-               
-                icono.SetActive(false);
-            }
-
-            Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.green);
-        }
-        else
-        {
-     
-            Debug.DrawRay(transform.position, transform.forward * 100, Color.green);
+            tiempoInicioQuieto = tiempoQuieto;
         }
     }
-
-   private void Girar()
-{
-    if(transform.position.x < puntosMovimiento[siguientePaso].position.x)
-    {
-        transform.rotation = Quaternion.Euler(0, 180, 0);
-    }
-    else
-    {
-        transform.rotation = Quaternion.identity;
-    }
-}
-
 }

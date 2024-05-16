@@ -34,7 +34,7 @@ public class TurningPipes : PuzzlesFather
     public override void Interact()
     {
         this.PuzzleHolder.SetActive(true);
-        RotatingPipes[index].color = Color.gray;
+        RotatingPipes[index].color = Color.red;
     }
 
     public override void Exit()
@@ -61,7 +61,7 @@ public class TurningPipes : PuzzlesFather
                     index++;
                 }
             }
-            RotatingPipes[index].color = Color.gray;
+            RotatingPipes[index].color = Color.red;
         }
         else
             return;

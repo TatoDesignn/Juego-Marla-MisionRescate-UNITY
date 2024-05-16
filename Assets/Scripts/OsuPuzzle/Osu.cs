@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Osu : PuzzlesFather
 {
@@ -9,6 +10,7 @@ public class Osu : PuzzlesFather
     [SerializeField] public float intervalRestart;
     [SerializeField] private float interval;
     public static Osu instance;
+    [SerializeField] private Sprite[] ImgKeys;
     private static KeyCode[] keys = new KeyCode[7];
     private static int i = 0;
 
@@ -31,7 +33,7 @@ public class Osu : PuzzlesFather
         keys[1] = KeyCode.Space;
         keys[2] = KeyCode.A;
         keys[3] = KeyCode.F;
-        keys[4] = KeyCode.S;
+        keys[4] = KeyCode.S;  
         keys[5] = KeyCode.Tab;
         keys[6] = KeyCode.D;
 
@@ -71,6 +73,12 @@ public class Osu : PuzzlesFather
     public KeyCode AssignKey(KeyCode beat)
     {
         beat = keys[i];
+        return beat;
+    }
+
+    public Sprite AssingImage(Sprite beat)
+    {
+        beat = ImgKeys[i];
         i++;
         if (i == keys.Length) i = 0;
         return beat;

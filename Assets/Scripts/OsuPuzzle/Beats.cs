@@ -4,19 +4,16 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Beats : MonoBehaviour
 {
     [SerializeField] GameObject Ring;
-    [SerializeField] TextMeshProUGUI Key;
+    [SerializeField] Image MyImgKeys;
     RectTransform CanvasPos;
-    [SerializeField] private static float interval = 1f;
+    [SerializeField] private static float interval = 2.5f;
     public KeyCode MyKey;
     Osu instance;
-
-
-   
-    
 
     private void Awake()
     {
@@ -24,11 +21,8 @@ public class Beats : MonoBehaviour
         CanvasPos = GetComponent<RectTransform>();
         CanvasPos.anchoredPosition = new Vector2(Random.Range(-290,290), Random.Range(-155,155));
         this.MyKey = instance.AssignKey(this.MyKey);
-        Key.text = this.MyKey.ToString();
-
-       
-      
-    }   
+        this.MyImgKeys.sprite = instance.AssingImage(MyImgKeys.sprite);
+    }
 
     private void Update()
     {
@@ -48,7 +42,7 @@ public class Beats : MonoBehaviour
             }
         }
 
-        if(this.Ring.transform.localScale.x < 0.8f)
+        if(this.Ring.transform.localScale.x < 0.95f)
         {
             this.instance.HitOrMiss(-1);
             Destroy(this.gameObject);

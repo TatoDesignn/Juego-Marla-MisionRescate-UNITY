@@ -16,6 +16,7 @@ public class Menu : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject camara;
     [SerializeField] private Button botonMarla;
     [SerializeField] private Button botonJonno;
+    [SerializeField] private GameObject[] cinematicas;
 
     [Space]
     [Header("Personaje Seleccionado:")]
@@ -202,19 +203,38 @@ public class Menu : MonoBehaviourPunCallbacks
 
     public void Buscar()
     {
-        interfaces[7].SetActive(true);
+        interfaces[17].SetActive(true);
 
         if (marla)
         {
-            Invoke("ActivarStoryM", 0.1f);
+            Cinematicas(0);
         }
         else if (jonno)
         {
-            Invoke("ActivarStoryJ", 0.1f);
+            Cinematicas(1);
         }
     }
 
-    private void ActivarStoryJ()
+    private void Cinematicas(int numero)
+    {
+        if(numero == 0)
+        {
+            cinematicas[numero].SetActive(true);
+            Invoke("Conectar", 14.1f);
+        }
+        else if(numero == 1) 
+        {
+            cinematicas[numero].SetActive(true);
+            Invoke("Conectar", 16.1f);
+        }
+    }
+
+    public void Saltar()
+    {
+        Conectar();
+    }
+
+    /*private void ActivarStoryJ()
     {
         ControllerStoryBoard.Instance.jonno = true;
         ControllerStoryBoard.Instance.StoryBoard();
@@ -224,7 +244,7 @@ public class Menu : MonoBehaviourPunCallbacks
     {
         ControllerStoryBoard.Instance.marla = true;
         ControllerStoryBoard.Instance.StoryBoard();
-    }
+    }*/
     public void Conectar()
     {
         hudCanvas.SetActive(true);
@@ -232,11 +252,11 @@ public class Menu : MonoBehaviourPunCallbacks
 
         if (marla)
         {
-            PhotonNetwork.Instantiate("MarlaCompleta", new Vector3(-22.62f, -4.15f, 8.84f), Quaternion.identity, 0);
+            PhotonNetwork.Instantiate("MarlaCompleta", new Vector3(-20f, -3f, 9.45f), Quaternion.identity, 0);
         }
         else if(jonno)
         {
-            PhotonNetwork.Instantiate("JonnoCompleta", new Vector3(-18.98f, 7.16f, 37.44f), Quaternion.identity, 0);
+            PhotonNetwork.Instantiate("JonnoCompleta", new Vector3(-21f, 8.85f, 44.2f), Quaternion.identity, 0);
         }
 
 

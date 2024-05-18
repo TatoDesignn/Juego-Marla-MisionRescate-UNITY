@@ -59,6 +59,15 @@ public class Interaction : MonoBehaviourPunCallbacks
                 player.isInteracting = true;
                 player.enabled = false;
             }
+
+            else if(hit.collider.gameObject.TryGetComponent(out Vent_JonnoEntrance interact))
+            {
+                interact.Interact(player.MyCamera, this.gameObject);
+            }
+            else if (hit.collider.gameObject.TryGetComponent(out Vent_JonnoExit interactable))
+            {
+                interactable.Interact(player.MyCamera, this.gameObject);
+            }
         }
     }
 

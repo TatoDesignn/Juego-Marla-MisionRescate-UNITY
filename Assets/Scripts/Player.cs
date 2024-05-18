@@ -18,7 +18,7 @@ public class Player : MonoBehaviourPunCallbacks
     public bool isInteracting = false;
 
     [Header("Configuracion de camara")]
-    [SerializeField] Camera MyCamera;
+    [SerializeField] public Camera MyCamera;
     [SerializeField] Transform camaraTransform;
     [SerializeField] private Vector3 camaraAgachado;
     [SerializeField] private Vector3 camaraAcostado;

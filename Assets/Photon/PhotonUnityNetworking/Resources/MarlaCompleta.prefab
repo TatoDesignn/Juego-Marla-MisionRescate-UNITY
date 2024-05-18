@@ -3998,13 +3998,13 @@ GameObject:
   - component: {fileID: 8777326821743127501}
   - component: {fileID: 3400069189887340983}
   - component: {fileID: 7191730935986642063}
+  - component: {fileID: 7338506298561624002}
   - component: {fileID: 2370640166376231204}
   - component: {fileID: 6752328192828892714}
   - component: {fileID: 6717611840238097170}
   - component: {fileID: 7002023751523360569}
   - component: {fileID: 7047073303903991293}
   - component: {fileID: 4144874580307415398}
-  - component: {fileID: 7338506298561624002}
   m_Layer: 0
   m_Name: MarlaCompleta
   m_TagString: Untagged
@@ -4090,6 +4090,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!136 &7338506298561624002
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251866179534172535}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &2370640166376231204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4218,29 +4241,6 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
---- !u!136 &7338506298561624002
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8251866179534172535}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.8
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &8319333002272235823
 GameObject:
   m_ObjectHideFlags: 0

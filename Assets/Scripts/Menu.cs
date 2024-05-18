@@ -253,10 +253,12 @@ public class Menu : MonoBehaviourPunCallbacks
         if (marla)
         {
             PhotonNetwork.Instantiate("MarlaCompleta", new Vector3(-20f, -3f, 9.45f), Quaternion.identity, 0);
+            marla = false;
         }
         else if(jonno)
         {
             PhotonNetwork.Instantiate("JonnoCompleta", new Vector3(-21f, 8.85f, 44.2f), Quaternion.identity, 0);
+            jonno = false;
         }
 
 

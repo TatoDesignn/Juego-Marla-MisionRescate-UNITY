@@ -27,31 +27,44 @@ public class Interaction : MonoBehaviourPunCallbacks
     }
     new private void OnEnable()
     {
-        if (photonView.IsMine)
-        {
-            control.PlayerActions.Interact.performed += Interact;
-            control.PlayerActions.Interact.Enable();
-            control.PlayerActions.Uninteract.performed += ExitInteraction;
-            control.PlayerActions.Uninteract.Enable();
-            //control.PlayerActions.Crouch.performed += isCrouching;
-            control.PlayerActions.Crouch.Enable();
-        }
+        control.PlayerActions.Interact.performed += Interact;
+        control.PlayerActions.Interact.Enable();
+        control.PlayerActions.Uninteract.performed += ExitInteraction;
+        control.PlayerActions.Uninteract.Enable();
+        //control.PlayerActions.Crouch.performed += isCrouching;
+        control.PlayerActions.Crouch.Enable();
     }
 
 
     new private void OnDisable()
     {
-        if (photonView.IsMine)
-        {
             control.PlayerActions.Interact.performed -= Interact;
             control.PlayerActions.Uninteract.performed -= ExitInteraction;
             control.PlayerActions.Crouch.performed -= ExitInteraction;
-        }
     }
 
     private void Interact(InputAction.CallbackContext A)
     {
-        if (photonView.IsMine)
+        Vector3 rayOrigin = objetoRay.transform.position;
+        Vector3 rayDirection = objetoRay.transform.forward;
+
+        Ray r = new Ray(rayOrigin, rayDirection);
+
+        if (Physics.Raycast(r, out RaycastHit hit, InteractRange))
+        {
+            if (hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
+            {
+                interactObj.enabled = true;
+                interactObj.ChangeCamera(true);
+                player.isInteracting = true;
+                player.enabled = false;
+            }
+        }
+    }
+
+    private void ExitInteraction(InputAction.CallbackContext context)
+    {
+        if (player.isInteracting)
         {
             Vector3 rayOrigin = objetoRay.transform.position;
             Vector3 rayDirection = objetoRay.transform.forward;
@@ -62,34 +75,9 @@ public class Interaction : MonoBehaviourPunCallbacks
             {
                 if (hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
                 {
-                    interactObj.enabled = true;
-                    interactObj.ChangeCamera(true);
-                    player.isInteracting = true;
-                    player.enabled = false;
-                }
-            }
-        }
-    }
-
-    private void ExitInteraction(InputAction.CallbackContext context)
-    {
-        if (photonView.IsMine)
-        {
-            if (player.isInteracting)
-            {
-                Vector3 rayOrigin = objetoRay.transform.position;
-                Vector3 rayDirection = objetoRay.transform.forward;
-
-                Ray r = new Ray(rayOrigin, rayDirection);
-
-                if (Physics.Raycast(r, out RaycastHit hit, InteractRange))
-                {
-                    if (hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
-                    {
-                        interactObj.ChangeCamera(false);
-                        interactObj.Exit();
-                        StartCoroutine("BackToNormalView");
-                    }
+                    interactObj.ChangeCamera(false);
+                    interactObj.Exit();
+                    StartCoroutine("BackToNormalView");
                 }
             }
         }

@@ -33,9 +33,9 @@ public class Player : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        
+
         medidorAnimator = GameObject.FindGameObjectWithTag("Medidor").GetComponent<Animator>();
-        
+
         capsuleCollider = GetComponent<CapsuleCollider>();
         centroCapsula = capsuleCollider.center;
 

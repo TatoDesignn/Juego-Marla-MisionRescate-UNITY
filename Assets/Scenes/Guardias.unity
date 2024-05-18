@@ -3312,6 +3312,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Malo 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2992358320618876844, guid: 6e60c4d93b0c1f9479e4e173f5880f91,
+        type: 3}
+      propertyPath: m_TagString
+      value: Guardia
+      objectReference: {fileID: 0}
     - target: {fileID: 7158308578450172801, guid: 6e60c4d93b0c1f9479e4e173f5880f91,
         type: 3}
       propertyPath: puntosMovimiento.Array.data[0]

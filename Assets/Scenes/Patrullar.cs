@@ -9,6 +9,8 @@ public class Patrullar : MonoBehaviour
     [SerializeField] private float distanciaMinima;
     [SerializeField] private float tiempoQuieto; 
     [SerializeField] private GameObject icono;
+    [SerializeField] private GameObject Detector;
+
     private Animator animator;
     private int siguientePaso;
     new Renderer renderer;
@@ -21,6 +23,11 @@ public class Patrullar : MonoBehaviour
         renderer = GetComponent<Renderer>();
         siguientePaso = 0;
         animator = GetComponent<Animator>();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
     }
 
     private void Update()

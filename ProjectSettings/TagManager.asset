@@ -16,6 +16,7 @@ TagManager:
   - ObjetoEspecifico
   - Medidor
   - LucesDeteccion
+  - Guardia
   layers:
   - Default
   - TransparentFX

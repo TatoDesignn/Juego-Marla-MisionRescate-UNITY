@@ -137,6 +137,11 @@ public class Player : MonoBehaviourPunCallbacks
         {
             medidorAnimator.SetTrigger("Cargar");
         }
+        else if (other.CompareTag("Guardia"))
+        {
+            medidorAnimator.SetTrigger("Cargar");
+            medidorAnimator.SetFloat("Multiplier", 2.5f);
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -144,6 +149,11 @@ public class Player : MonoBehaviourPunCallbacks
         if (other.CompareTag("CamaraSensor") || other.CompareTag("LucesDeteccion"))
         {
             medidorAnimator.SetTrigger("Reanudar");
+        }
+        else if (other.CompareTag("Guardia"))
+        {
+            medidorAnimator.SetTrigger("Cargar");
+            medidorAnimator.SetFloat("Multiplier", 1f);
         }
     }
 }

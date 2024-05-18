@@ -39,6 +39,19 @@ public class Menu : MonoBehaviourPunCallbacks
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
+        Primera();
+    }
+
+    private void Primera()
+    {
+        interfaces[18].SetActive(true);
+        Invoke("Segunda", 11f);
+    }
+
+    private void Segunda()
+    {
+        interfaces[18].SetActive(false);
+        interfaces[19].SetActive(true);
         interfaces[0].SetActive(true);
         interfaces[5].SetActive(true);
     }

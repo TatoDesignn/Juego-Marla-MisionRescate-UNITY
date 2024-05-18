@@ -500,6 +500,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indicadorON: {fileID: 5884593759528724398}
+  indicadorOFF: {fileID: 0}
+  candadoOFF: {fileID: 0}
+  candadoON: {fileID: 0}
 --- !u!50 &4755720705126239028
 Rigidbody2D:
   serializedVersion: 4
@@ -1213,6 +1216,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indicadorON: {fileID: 7586854781875673515}
+  indicadorOFF: {fileID: 0}
+  candadoOFF: {fileID: 0}
+  candadoON: {fileID: 0}
 --- !u!61 &5125272198334059198
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1486,6 +1492,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indicadorON: {fileID: 113462308211454288}
+  indicadorOFF: {fileID: 0}
+  candadoOFF: {fileID: 0}
+  candadoON: {fileID: 0}
 --- !u!50 &6403241732695882737
 Rigidbody2D:
   serializedVersion: 4
@@ -1648,6 +1657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481bc73753aef19468a78b2cf7c5676e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
 --- !u!61 &9092497297284581575
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2167,6 +2177,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indicadorON: {fileID: 2954194870804859800}
+  indicadorOFF: {fileID: 0}
+  candadoOFF: {fileID: 0}
+  candadoON: {fileID: 0}
 --- !u!61 &7234426130228128845
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2327,8 +2340,11 @@ MonoBehaviour:
   linea2: {fileID: 113462308211454288}
   linea3: {fileID: 5884593759528724398}
   linea4: {fileID: 7586854781875673515}
+  controles: {fileID: 0}
   interfaz: {fileID: 3714883384048186731}
   puerta: {fileID: 0}
+  audioSource: {fileID: 0}
+  activationSound: {fileID: 0}
 --- !u!1 &4475954051501602850
 GameObject:
   m_ObjectHideFlags: 0
@@ -2452,7 +2468,15 @@ MonoBehaviour:
   luces: {fileID: 0}
   puntoT: {fileID: 3505052105320598032}
   movimiento: {fileID: 8210913830640288697}
+  primera: {fileID: 0}
+  segunda: {fileID: 0}
+  rectanguloLargo: {fileID: 0}
+  palanca: {fileID: 0}
+  controles: {fileID: 0}
   velocidad: 1
+  audioSource: {fileID: 0}
+  apagarSound: {fileID: 0}
+  aumentoVelocidadSound: {fileID: 0}
 --- !u!1 &4786827347731746860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2529,7 +2553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -2914,6 +2938,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   velocidad: 9
+  audioSource: {fileID: 0}
+  sonidoMovimiento: {fileID: 0}
+  activo: 0
 --- !u!1 &5884593759528724398
 GameObject:
   m_ObjectHideFlags: 0

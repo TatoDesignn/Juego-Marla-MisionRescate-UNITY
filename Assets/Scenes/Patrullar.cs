@@ -9,6 +9,7 @@ public class Patrullar : MonoBehaviour
     [SerializeField] private float distanciaMinima;
     [SerializeField] private float tiempoQuieto; 
     [SerializeField] private GameObject icono;
+    private Animator animator;
     private int siguientePaso;
     new Renderer renderer;
     private bool estaQuieto = true;
@@ -19,12 +20,14 @@ public class Patrullar : MonoBehaviour
         siguientePaso = Random.Range(0, puntosMovimiento.Length);
         renderer = GetComponent<Renderer>();
         siguientePaso = 0;
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         if (estaQuieto)
         {
+            animator.SetBool("Walking", false);
             tiempoInicioQuieto -= Time.deltaTime;
             if (tiempoInicioQuieto <=0)
             {
@@ -38,14 +41,15 @@ public class Patrullar : MonoBehaviour
                 return;
             }
         }
+        else
+            animator.SetBool("Walking", true);
 
+        transform.LookAt(puntosMovimiento[siguientePaso].position);
         transform.position = Vector3.MoveTowards(transform.position, puntosMovimiento[siguientePaso].position, velocidadMovimiento * Time.deltaTime);
         
         
         if(Vector3.Distance(this.transform.position, puntosMovimiento[siguientePaso].position) <= distanciaMinima)
         {
-            transform.DOLookAt(puntosMovimiento[siguientePaso].position, tiempoQuieto/1.5f);
-            //transform.LookAt(puntosMovimiento[siguientePaso].position);
             estaQuieto = true;
             siguientePaso++;
             if(siguientePaso >= puntosMovimiento.Length)

@@ -3,7 +3,27 @@ guid: fd4a054a2f1397a48bb8a19a33e32f7a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: bdb20a7ebefa84b45adfd836072a6bc8, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Mesa_Material_BaseColor.1001
+    second: {fileID: 2800000, guid: 397c8547251fafd4692ece27bacf5859, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Mesa_Material_Metallic.1001
+    second: {fileID: 2800000, guid: 1909c326508c157488e1c71aa30a4793, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Mesa_Material_Roughness.1001
+    second: {fileID: 2800000, guid: 66dcf39fc09accb4d8df14ec15a01897, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

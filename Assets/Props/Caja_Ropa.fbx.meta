@@ -3,7 +3,32 @@ guid: 31563801b7170bd43b4d024e4fb79fc0
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default_OBJ
+    second: {fileID: 2100000, guid: fb7a8b7949db8fe4886291577ba30225, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TT_checker_4096x4096_COLOR_GRID
+    second: {fileID: 2100000, guid: a687f44821a743e4e8e4e31a4884e2d9, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Default_OBJ_baseColor
+    second: {fileID: 2800000, guid: 32b742cfc6492d342bc220225f2b05c4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TT_checker_4096x4096_COLOR_GRID_baseColor
+    second: {fileID: 2800000, guid: 9afe3d9d43f551e4cafb1d166e01dafb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TT_checker_4096x4096_COLOR_GRID_normal
+    second: {fileID: 2800000, guid: ef37180abf6b3b94e9ffa0be747b6a57, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

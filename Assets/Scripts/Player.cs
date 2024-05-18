@@ -7,7 +7,7 @@ public class Player : MonoBehaviourPunCallbacks
 {
     private Rigidbody rb;
     public Animator MyAnimator;
-    Animator medidorAnimator;
+    public Animator medidorAnimator;
     CapsuleCollider capsuleCollider;
 
     [Space]
@@ -15,7 +15,7 @@ public class Player : MonoBehaviourPunCallbacks
     [SerializeField] private float speed;
     [SerializeField] private float mouseSensitivity;
     [SerializeField] private float LookClamp;
-    public bool isInteracting = false;
+    [HideInInspector] public bool isInteracting = false;
 
     [Header("Configuracion de camara")]
     [SerializeField] public Camera MyCamera;
@@ -29,12 +29,12 @@ public class Player : MonoBehaviourPunCallbacks
     private bool acostado = false;
 
     [Header("New Input System")]
-    private InputManager inputManager;
+    public InputManager inputManager;
 
     void Start()
     {
 
-        medidorAnimator = GameObject.FindGameObjectWithTag("Medidor").GetComponent<Animator>();
+        //medidorAnimator = GameObject.FindGameObjectWithTag("Medidor").GetComponent<Animator>();
 
         capsuleCollider = GetComponent<CapsuleCollider>();
         centroCapsula = capsuleCollider.center;
@@ -152,7 +152,7 @@ public class Player : MonoBehaviourPunCallbacks
         }
         else if (other.CompareTag("Guardia"))
         {
-            medidorAnimator.SetTrigger("Cargar");
+            medidorAnimator.SetTrigger("Reanudar");
             medidorAnimator.SetFloat("Multiplier", 1f);
         }
     }

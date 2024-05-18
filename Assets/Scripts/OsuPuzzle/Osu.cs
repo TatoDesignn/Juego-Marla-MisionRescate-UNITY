@@ -9,6 +9,7 @@ public class Osu : PuzzlesFather
     [SerializeField] GameObject beatPrefab;
     [SerializeField] public float intervalRestart;
     [SerializeField] private float interval;
+    [SerializeField] private Material[] Bulbs;
     public static Osu instance;
     [SerializeField] private Sprite[] ImgKeys;
     private static KeyCode[] keys = new KeyCode[7];
@@ -36,6 +37,9 @@ public class Osu : PuzzlesFather
         keys[4] = KeyCode.S;  
         keys[5] = KeyCode.Tab;
         keys[6] = KeyCode.D;
+
+        foreach (Material mat in Bulbs)
+            mat.color = Color.red;
 
     }
 
@@ -99,6 +103,7 @@ public class Osu : PuzzlesFather
         }
         else if (Hits == HitsNeeded)
         {
+            Bulbs[attempt].color = Color.green;
             attempt++;
             SetUpNext(attempt);
             Exit();

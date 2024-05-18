@@ -14,6 +14,7 @@ public class StorageBox : PuzzlesFather
     private InputManager inputManager;
     [SerializeField] private int Steps = 0;
     [SerializeField] private int stepsNeeded;
+    [SerializeField] private Slider Slider;
 
     public override void Interact()
     {
@@ -25,6 +26,7 @@ public class StorageBox : PuzzlesFather
         }
         else
             this.PuzzleHolder.SetActive(true);
+        Slider.maxValue = stepsNeeded;
     }
 
     public override void Exit()
@@ -37,27 +39,32 @@ public class StorageBox : PuzzlesFather
     {
         if (!ActiveKey)
         {
-            A.color = Color.gray;
-            D.color = Color.white;
+            A.enabled = true;
+            D.enabled = false;
         }
         else
         {
-            D.color = Color.gray;
-            A.color = Color.white;
+            D.enabled = true;
+            A.enabled = false;
         }
         float KeyPressed = Input.GetAxis("Horizontal");
-        if (KeyPressed < 0 && !ActiveKey) 
-        { 
+        if (KeyPressed < 0 && !ActiveKey)
+        {
             Steps++;
             ActiveKey = true;
         }
-        else if(KeyPressed > 0 && ActiveKey)
+        else if (KeyPressed > 0 && ActiveKey)
         {
             Steps++;
             ActiveKey = false;
         }
         Check4Complete();
           
+    }
+
+    private void LateUpdate()
+    {
+        Slider.value = Steps;
     }
 
     private void Check4Complete()

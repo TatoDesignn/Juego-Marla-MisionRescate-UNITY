@@ -18177,6 +18177,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6906141689609442080, guid: ce91ae5f603e2cd46ab35429b412a89d,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 8.45752
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906141689609442080, guid: ce91ae5f603e2cd46ab35429b412a89d,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.13248156
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906141689609442080, guid: ce91ae5f603e2cd46ab35429b412a89d,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.00442446
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906141689609442080, guid: ce91ae5f603e2cd46ab35429b412a89d,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -7.181694
+      objectReference: {fileID: 0}
     - target: {fileID: 7925122648421894712, guid: ce91ae5f603e2cd46ab35429b412a89d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37550,6 +37570,7 @@ GameObject:
   - component: {fileID: 1864824882648851944}
   - component: {fileID: 3097268460211929691}
   - component: {fileID: 5736390809740598629}
+  - component: {fileID: 7881178784400205492}
   m_Layer: 0
   m_Name: Concrete Stairs
   m_TagString: Untagged
@@ -37557,6 +37578,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &7881178784400205492
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881178784400205491}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4032753876464605862, guid: 1bf36856b5310934da05168c58faa1f7, type: 3}
 --- !u!1 &7884479610910250546
 GameObject:
   m_ObjectHideFlags: 0

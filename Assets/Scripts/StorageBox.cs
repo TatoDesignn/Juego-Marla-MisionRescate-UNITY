@@ -15,6 +15,7 @@ public class StorageBox : PuzzlesFather
     [SerializeField] private int Steps = 0;
     [SerializeField] private int stepsNeeded;
     [SerializeField] private Slider Slider;
+    [SerializeField] GameObject _Door;
 
     public override void Interact()
     {
@@ -71,6 +72,7 @@ public class StorageBox : PuzzlesFather
     {
         if( Steps == stepsNeeded) 
         {
+            _Door.SetActive(false);
             Completed = true;
             Exit();
             Debug.Log("Ya te vestiste, la verdad irrealmente rápido");

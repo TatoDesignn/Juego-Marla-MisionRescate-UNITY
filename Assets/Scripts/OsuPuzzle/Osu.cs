@@ -10,6 +10,7 @@ public class Osu : PuzzlesFather
     [SerializeField] public float intervalRestart;
     [SerializeField] private float interval;
     [SerializeField] private Material[] Bulbs;
+    [SerializeField] GameObject _Door;
     public static Osu instance;
     [SerializeField] private Sprite[] ImgKeys;
     private static KeyCode[] keys = new KeyCode[7];
@@ -106,9 +107,10 @@ public class Osu : PuzzlesFather
             Bulbs[attempt].color = Color.green;
             attempt++;
             SetUpNext(attempt);
+            if(attempt >= 3)
+                _Door.SetActive(false);
             Exit();
             base.ChangeCamera(false);
-            Debug.Log("Reclusa liberada");
         }
     }
 

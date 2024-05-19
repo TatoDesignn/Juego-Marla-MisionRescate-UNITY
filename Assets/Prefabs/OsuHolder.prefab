@@ -5054,7 +5054,7 @@ MonoBehaviour:
   Materials: []
   PuzzleHolder: {fileID: 8747905806129644426}
   myCamera: {fileID: 2768524110251782679}
-  beatPrefab: {fileID: 1248014043559035187, guid: 275f458002af9d943ac3b314ded5f647,
+  beatPrefab: {fileID: 4674174022252910110, guid: de027e725f5b47a47b61d9ebf4d70dfc,
     type: 3}
   intervalRestart: 5
   interval: 3

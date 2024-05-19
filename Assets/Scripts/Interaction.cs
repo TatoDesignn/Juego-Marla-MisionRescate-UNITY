@@ -9,6 +9,7 @@ public class Interaction : MonoBehaviourPunCallbacks
 {
     private InputControl control;
     private Rigidbody rb;
+    private Animator animator;
     [SerializeField] private float InteractRange;
     [SerializeField] private float InteractView;
     [SerializeField] private GameObject objetoRay;
@@ -24,6 +25,7 @@ public class Interaction : MonoBehaviourPunCallbacks
     {
         rb = GetComponent<Rigidbody>();
         player = GetComponent<Player>();
+        animator = GetComponent<Animator>();
     }
     new private void OnEnable()
     {
@@ -58,6 +60,8 @@ public class Interaction : MonoBehaviourPunCallbacks
                 interactObj.ChangeCamera(true);
                 player.isInteracting = true;
                 player.enabled = false;
+                animator.SetFloat("MovX", 0);
+                animator.SetFloat("MovY", 0);
             }
 
             else if(hit.collider.gameObject.TryGetComponent(out Vent_JonnoEntrance interact))

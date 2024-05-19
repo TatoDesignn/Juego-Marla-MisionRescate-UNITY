@@ -4127,14 +4127,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyAnimator: {fileID: 1434024443320962079, guid: 4722a9598695e4c409465e3a7d2133cd,
     type: 3}
+  medidorAnimator: {fileID: 0}
   speed: 2
-  mouseSensitivity: 50
+  mouseSensitivity: 10
   LookClamp: 45
   isInteracting: 0
   MyCamera: {fileID: 4247169642403805017}
   camaraTransform: {fileID: 8226321302873751363}
   camaraAgachado: {x: 0, y: -0.5, z: 0.2}
   camaraAcostado: {x: -0.1, y: -1.2, z: 0.2}
+  inputManager: {fileID: 0}
 --- !u!114 &6752328192828892714
 MonoBehaviour:
   m_ObjectHideFlags: 0

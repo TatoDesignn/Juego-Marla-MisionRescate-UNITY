@@ -15,7 +15,7 @@ public class Player : MonoBehaviourPunCallbacks
     [SerializeField] private float speed;
     [SerializeField] private float mouseSensitivity;
     [SerializeField] private float LookClamp;
-    [HideInInspector] public bool isInteracting = false;
+    public bool isInteracting = false;
 
     [Header("Configuracion de camara")]
     [SerializeField] public Camera MyCamera;
@@ -84,6 +84,12 @@ public class Player : MonoBehaviourPunCallbacks
 
                 rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
 
+                /*if (isInteracting)
+                {
+                    move.x = 0f;
+                    move.y = 0f;
+                }*/
+
                 //Animacion Parado
                 MyAnimator.SetFloat("MovX", move.x);
                 MyAnimator.SetFloat("MovY", move.y);
@@ -127,16 +133,25 @@ public class Player : MonoBehaviourPunCallbacks
                     camaraTransform.localPosition = camaraInicial;
                     acostado = false;
                 }
+
+                //Para que no se quede moviendo mientras esta en un puzzle
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("CamaraSensor") || other.CompareTag("LucesDeteccion"))
+        if ( other.CompareTag("LucesDeteccion"))
         {
             medidorAnimator.SetTrigger("Cargar");
         }
+
+        else if (other.CompareTag("CamaraSensor"))
+        {
+            medidorAnimator.SetTrigger("Cargar");
+            medidorAnimator.SetFloat("Multiplier", 10f);
+        }
+
         else if (other.CompareTag("Guardia"))
         {
             medidorAnimator.SetTrigger("Cargar");

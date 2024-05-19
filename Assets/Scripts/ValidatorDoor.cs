@@ -20,7 +20,7 @@ public class ValidatorDoor : MonoBehaviourPun, IPunObservable
     [Header("Configuracion de la Puerta")]
     public GameObject interfaz;
     public GameObject puerta;
-
+    [SerializeField] private Animator animatorPuerta;
     public AudioSource audioSource; // Referencia al componente AudioSource
     public AudioClip activationSound; // Sonido a reproducir cuando se activan todos los validadores
 
@@ -41,11 +41,7 @@ public class ValidatorDoor : MonoBehaviourPun, IPunObservable
         }
     }
 
-    [PunRPC]
-    void RPC_Animacion()
-    {
-        puertaScript.Animar();
-    }
+    
 
     IEnumerator PlaySoundAndActivateDoor()
     {
@@ -57,7 +53,7 @@ public class ValidatorDoor : MonoBehaviourPun, IPunObservable
         yield return new WaitForSeconds(activationSound.length);
 
         // Desactivar la puerta y la interfaz
-        this.photonView.RPC("RPC_Animacion", RpcTarget.All);
+        animatorPuerta.SetTrigger("Rotar");
 
         interfaz.SetActive(false);
         controles.SetActive(true);

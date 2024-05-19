@@ -10,6 +10,7 @@ public class PuzzleLights : PuzzlesFather
     [SerializeField] private GameObject controladorLuces;
     [SerializeField] private GameObject controles;
     [SerializeField] private GameObject particulas;
+    [SerializeField] private Animator animatorPuerta;
 
     public bool acceder = true;
 
@@ -28,6 +29,7 @@ public class PuzzleLights : PuzzlesFather
         if (!acceder)
         {
             particulas.SetActive(false);
+            animatorPuerta.SetTrigger("Rotar");
             Destroy(GetComponent<PuzzleLights>());
         }
 

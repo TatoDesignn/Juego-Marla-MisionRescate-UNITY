@@ -11,6 +11,7 @@ public class PuzzleCamara : PuzzlesFather
     Hud hud;
     [Header("Configuracion de las camaras")]
     [SerializeField] private GameObject controladorCamaras;
+    [SerializeField] private Animator animatorPuerta;
 
 
     public override void Interact()
@@ -23,16 +24,15 @@ public class PuzzleCamara : PuzzlesFather
 
     public override void Exit()
     {
+        animatorPuerta.SetTrigger("Rotar");
         controller.activo = false;
         hud.activado = false;
         Cursor.lockState = CursorLockMode.Locked;
         controladorCamaras.SetActive(false);
-        medidor.SetActive(true);
     }
 
     private void Activar()
     {
-        medidor.SetActive(false);
         controladorCamaras.SetActive(true);
         Cursor.lockState = CursorLockMode.Confined;
     }

@@ -36,6 +36,10 @@ public class Menu : MonoBehaviourPunCallbacks
     private bool unio = false;
     private bool crear = false;
 
+    [Space]
+    [Header("Audio Settings:")]
+    [SerializeField] private AudioSource audioSource; // Reference to the AudioSource
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
@@ -46,6 +50,15 @@ public class Menu : MonoBehaviourPunCallbacks
     {
         interfaces[18].SetActive(true);
         Invoke("Segunda", 11f);
+        Invoke("PlaySound", 11f); // Start playing sound after 11 seconds
+    }
+
+    private void PlaySound()
+    {
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
     }
 
     private void Segunda()
@@ -84,6 +97,7 @@ public class Menu : MonoBehaviourPunCallbacks
             PhotonNetwork.ConnectUsingSettings();
         }
     }
+
     public override void OnConnectedToMaster()
     {
         interfaces[1].SetActive(false);
@@ -229,7 +243,12 @@ public class Menu : MonoBehaviourPunCallbacks
     }
 
     private void Cinematicas(int numero)
-    {
+    {   
+        if (audioSource != null)
+        {
+            audioSource.Stop(); // Stop playing sound
+        }
+
         if(numero == 0)
         {
             cinematicas[numero].SetActive(true);

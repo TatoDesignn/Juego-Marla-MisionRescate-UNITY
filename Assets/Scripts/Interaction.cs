@@ -111,7 +111,7 @@ public class Interaction : MonoBehaviourPunCallbacks
     private IEnumerator BackToNormalView()
     {
         player.isInteracting = false;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.8f);
         player.enabled = true;
     }
 

@@ -36,7 +36,7 @@ public class Patrullar : MonoBehaviour
             Encountered = true;
             animator.SetBool("Aiming", true);
             Marla.medidorAnimator.SetTrigger("Cargar");
-            Marla.medidorAnimator.SetFloat("Multiplier", 2.5f);
+            Marla.medidorAnimator.SetFloat("Multiplier", 0.8f);
             transform.LookAt(Marla.gameObject.transform.position);
         }
     }

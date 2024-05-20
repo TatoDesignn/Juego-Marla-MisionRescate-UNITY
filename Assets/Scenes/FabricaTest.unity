@@ -430,7 +430,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46460470}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 350de6ceadd962047bfda489f62a0c9d, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 2dcaa5ab50da6784799e9eb0038852e1, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -447,7 +447,7 @@ VideoPlayer:
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
-  - 1
+  - 0.5
   m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
@@ -8901,7 +8901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 07fd7fe1775f77a4a848f19e9f2947d8, type: 3}
-  triggerDistance: 5
+  triggerDistance: 20
   player: {fileID: 8737538287436722412, guid: 122a699543bf36147a20399131d036c2, type: 3}
 --- !u!65 &661010085
 BoxCollider:
@@ -9490,7 +9490,7 @@ VideoPlayer:
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
-  - 1
+  - 0.5
   m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
@@ -14304,7 +14304,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012042047}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: e0b1df9ca6107614dbd55769330ade78, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: d4e8ae80bc7b1b046850dba2cdc5c38e, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -14318,12 +14318,14 @@ VideoPlayer:
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 0.5
   m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 0
@@ -42256,5 +42258,5 @@ SceneRoots:
   - {fileID: 1233135287}
   - {fileID: 3784371962680475218}
   - {fileID: 8275315350206930445}
-  - {fileID: 1545470140}
   - {fileID: 854295383}
+  - {fileID: 1545470140}

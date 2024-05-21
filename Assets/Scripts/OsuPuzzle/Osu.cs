@@ -42,6 +42,8 @@ public class Osu : PuzzlesFather
         foreach (Material mat in Bulbs)
             mat.color = Color.red;
 
+        this.enabled = false;
+
     }
 
     public override void Exit()

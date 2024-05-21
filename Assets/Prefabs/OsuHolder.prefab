@@ -5046,7 +5046,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6272013959460643704}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3224ea191cc676446bee77e7539bf0c0, type: 3}
   m_Name: 
@@ -5064,6 +5064,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d1556be1442605f4b84501749469d62b, type: 2}
   - {fileID: 2100000, guid: 21c2dce53dcbb2a4cb408f43b80fb01b, type: 2}
   - {fileID: 2100000, guid: 520513cca259103459739c7345dd17d5, type: 2}
+  _Door: {fileID: 0}
   ImgKeys:
   - {fileID: 21300000, guid: 7a51d98f2cba9b64dbb26be9dab83d0a, type: 3}
   - {fileID: 21300000, guid: 2f234c2d104512e4d8da168e61017497, type: 3}

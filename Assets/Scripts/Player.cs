@@ -9,6 +9,7 @@ public class Player : MonoBehaviourPunCallbacks
     public Animator MyAnimator;
     public Animator medidorAnimator;
     CapsuleCollider capsuleCollider;
+    private AudioSource audioSource;
 
     [Space]
     [Header("Configuracion de Movimiento")]
@@ -31,9 +32,11 @@ public class Player : MonoBehaviourPunCallbacks
     [Header("New Input System")]
     public InputManager inputManager;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioClip footstepSound;
+
     void Start()
     {
-
         medidorAnimator = GameObject.FindGameObjectWithTag("Medidor").GetComponent<Animator>();
 
         capsuleCollider = GetComponent<CapsuleCollider>();
@@ -42,6 +45,7 @@ public class Player : MonoBehaviourPunCallbacks
         inputManager = InputManager.Instance;
         rb = GetComponent<Rigidbody>();
         MyAnimator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
         camaraInicial = camaraTransform.localPosition;
 
@@ -50,6 +54,12 @@ public class Player : MonoBehaviourPunCallbacks
             Destroy(GetComponentInChildren<Camera>().gameObject);
         }
 
+        // Ensure the AudioSource is set up correctly
+        if (audioSource != null)
+        {
+            audioSource.clip = footstepSound;
+            audioSource.loop = false; // Steps usually do not loop
+        }
     }
 
     private void Update()
@@ -58,16 +68,15 @@ public class Player : MonoBehaviourPunCallbacks
         {
             if (photonView.IsMine)
             {
-                //Get Camera Input
+                // Get Camera Input
                 Vector2 move = inputManager.GetMouseDelta();
                 move = move * mouseSensitivity * Time.deltaTime;
                 xRotation -= move.y;
                 xRotation = Mathf.Clamp(xRotation, -LookClamp, LookClamp);
 
-                //Move Camera
+                // Move Camera
                 MyCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
                 transform.Rotate(Vector3.up * move.x);
-
             }
         }
     }
@@ -78,11 +87,17 @@ public class Player : MonoBehaviourPunCallbacks
         {
             if (photonView.IsMine)
             {
-                //Get Input
+                // Get Input
                 Vector2 move = inputManager.GetPlayerMovement();
                 Vector3 movement = transform.right * move.x + transform.forward * move.y;
 
                 rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+
+                // Play footstep sound if moving
+                if (movement.magnitude > 0 && !audioSource.isPlaying)
+                {
+                    audioSource.Play();
+                }
 
                 /*if (isInteracting)
                 {
@@ -90,11 +105,11 @@ public class Player : MonoBehaviourPunCallbacks
                     move.y = 0f;
                 }*/
 
-                //Animacion Parado
+                // Animacion Parado
                 MyAnimator.SetFloat("MovX", move.x);
                 MyAnimator.SetFloat("MovY", move.y);
 
-                //Animacion Agachado
+                // Animacion Agachado
                 if (Input.GetKey(KeyCode.LeftShift) && !acostado)
                 {
                     MyAnimator.SetBool("Agacharse", true);
@@ -114,7 +129,7 @@ public class Player : MonoBehaviourPunCallbacks
                     agachado = false;
                 }
 
-                //Animacion Acostado
+                // Animacion Acostado
                 if (Input.GetKey(KeyCode.C) && !agachado)
                 {
                     MyAnimator.SetBool("Acostado", true);
@@ -134,7 +149,7 @@ public class Player : MonoBehaviourPunCallbacks
                     acostado = false;
                 }
 
-                //Para que no se quede moviendo mientras esta en un puzzle
+                // Para que no se quede moviendo mientras esta en un puzzle
             }
         }
     }

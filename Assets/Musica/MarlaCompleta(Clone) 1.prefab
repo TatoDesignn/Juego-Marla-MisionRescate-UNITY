@@ -4305,6 +4305,7 @@ MonoBehaviour:
   camaraAgachado: {x: 0, y: -0.5, z: 0.2}
   camaraAcostado: {x: -0.1, y: -1.2, z: 0.2}
   inputManager: {fileID: 0}
+  footstepSound: {fileID: 8300000, guid: 49fdaf252a7dd6748a7730181202f001, type: 3}
 --- !u!114 &635948678067915836
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class Osu : PuzzlesFather
     [SerializeField] GameObject _Door;
     public static Osu instance;
     [SerializeField] private Sprite[] ImgKeys;
-    private static KeyCode[] keys = new KeyCode[7];
+    private static KeyCode[] keys = new KeyCode[4];
     private static int i = 0;
 
     private int attempt = 0;
@@ -32,12 +32,9 @@ public class Osu : PuzzlesFather
     {
         Hits = 0;
         keys[0] = KeyCode.W;
-        keys[1] = KeyCode.Space;
-        keys[2] = KeyCode.A;
-        keys[3] = KeyCode.F;
-        keys[4] = KeyCode.S;  
-        keys[5] = KeyCode.Tab;
-        keys[6] = KeyCode.D;
+        keys[1] = KeyCode.A;
+        keys[2] = KeyCode.S;  
+        keys[3] = KeyCode.D;
 
         foreach (Material mat in Bulbs)
             mat.color = Color.red;

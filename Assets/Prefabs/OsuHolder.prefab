@@ -5217,11 +5217,8 @@ MonoBehaviour:
   _Door: {fileID: 0}
   ImgKeys:
   - {fileID: 21300000, guid: 7a51d98f2cba9b64dbb26be9dab83d0a, type: 3}
-  - {fileID: 21300000, guid: 2f234c2d104512e4d8da168e61017497, type: 3}
   - {fileID: 21300000, guid: ac645841e92f6cd438dbeff7ae9ae2e6, type: 3}
-  - {fileID: 21300000, guid: 1d9e37d2acef2324fb893f50b920d76d, type: 3}
   - {fileID: 21300000, guid: bedbff76e7dd195499b55d9ca5739c1b, type: 3}
-  - {fileID: 21300000, guid: 74c119ee6431f7c48a469041db2e2528, type: 3}
   - {fileID: 21300000, guid: 89cf0f11029e500418f054635bf3a795, type: 3}
   Hits: 0
   failSound: {fileID: 5292104601150684653}

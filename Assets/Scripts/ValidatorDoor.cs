@@ -6,7 +6,6 @@ using UnityEngine;
 public class ValidatorDoor : MonoBehaviourPun, IPunObservable
 {
     PuzzleDoor puzzle;
-    Puerta puertaScript;
 
     [Space]
     [Header("Objetos validadores de la puerta: ")]
@@ -19,7 +18,6 @@ public class ValidatorDoor : MonoBehaviourPun, IPunObservable
     [Space]
     [Header("Configuracion de la Puerta")]
     public GameObject interfaz;
-    public GameObject puerta;
     [SerializeField] private Animator animatorPuerta;
     public AudioSource audioSource; // Referencia al componente AudioSource
     public AudioClip activationSound; // Sonido a reproducir cuando se activan todos los validadores
@@ -29,7 +27,6 @@ public class ValidatorDoor : MonoBehaviourPun, IPunObservable
     private void Start()
     {
         puzzle = GameObject.FindGameObjectWithTag("PuzzleDoor").GetComponent<PuzzleDoor>();
-        puertaScript = GameObject.FindGameObjectWithTag("Puerta").GetComponent<Puerta>();
     }
 
     void Update()

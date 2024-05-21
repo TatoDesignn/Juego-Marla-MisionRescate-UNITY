@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 using UnityEngine.UI;
 
 public class StorageBox : PuzzlesFather
 {
-
+    Hud hud;
     [SerializeField] private bool Completed = false;
     private bool ActiveKey = false;
     [SerializeField] private Image D;
@@ -19,6 +20,8 @@ public class StorageBox : PuzzlesFather
 
     public override void Interact()
     {
+        hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<Hud>();
+        hud.activado = true;
         this.enabled = true;
         if (Completed)
         {
@@ -32,6 +35,7 @@ public class StorageBox : PuzzlesFather
 
     public override void Exit()
     {
+        hud.activado = false;
         this.PuzzleHolder.SetActive(false);
         this.enabled = false;
     }

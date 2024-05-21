@@ -17,6 +17,7 @@ TagManager:
   - Medidor
   - LucesDeteccion
   - Guardia
+  - Perder
   layers:
   - Default
   - TransparentFX

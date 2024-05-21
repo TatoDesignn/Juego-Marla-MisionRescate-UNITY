@@ -45,6 +45,7 @@ MonoBehaviour:
   - RPC_Marla
   - RPC_Quitar
   - RPC_Animacion
+  - RPC_Timer
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

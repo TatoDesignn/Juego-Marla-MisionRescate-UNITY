@@ -7,11 +7,13 @@ using UnityEngine.UI;
 
 public class TurningPipes : PuzzlesFather
 {
+    Hud hud;
     [SerializeField] GameObject[] Owners;
     Image[] RotatingPipes;
     Pipes[] pipes;
     [SerializeField] Color[] Colors;
     private int index = 0;
+    bool _isUsing = false;
 
     private void Awake()
     {
@@ -33,19 +35,22 @@ public class TurningPipes : PuzzlesFather
     }
     public override void Interact()
     {
+        hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<Hud>();
+        hud.activado = true;
         this.PuzzleHolder.SetActive(true);
+        _isUsing = true;
         RotatingPipes[index].color = Color.red;
     }
 
     public override void Exit()
     {
+        hud.activado = false;
+        _isUsing = false;
         this.PuzzleHolder.SetActive(false);
     }
 
     private void ChangePipe(int dir)
     {
-        if(this.PuzzleHolder == isActiveAndEnabled)
-        {
             RotatingPipes[index].color = Color.white;
             if(dir < 0)
             {
@@ -62,9 +67,7 @@ public class TurningPipes : PuzzlesFather
                 }
             }
             RotatingPipes[index].color = Color.red;
-        }
-        else
-            return;
+
     }
 
     private void RotatePipe()
@@ -74,18 +77,21 @@ public class TurningPipes : PuzzlesFather
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.D))
+        if(_isUsing)
         {
-            ChangePipe(1);
-        }
-        else if(Input.GetKeyDown(KeyCode.A)) 
-        {
-            ChangePipe(-1);
-        }
+            if(Input.GetKeyDown(KeyCode.D))
+            {
+                ChangePipe(1);
+            }
+            else if(Input.GetKeyDown(KeyCode.A)) 
+            {
+                ChangePipe(-1);
+            }
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            RotatePipe();
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                RotatePipe();
+            }
         }
     }
 

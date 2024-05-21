@@ -161,7 +161,7 @@ public class Player : MonoBehaviourPunCallbacks
             medidorAnimator.SetTrigger("Cargar");
         }
 
-        else if (other.CompareTag("CamaraSensor"))
+        else if (other.CompareTag("CamaraSensor") || other.CompareTag("Perder"))
         {
             medidorAnimator.SetTrigger("Cargar");
             medidorAnimator.SetFloat("Multiplier", 10f);

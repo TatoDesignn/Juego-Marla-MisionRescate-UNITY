@@ -19,7 +19,7 @@ public class Beats : MonoBehaviour
     {
         instance = Osu.instance;
         CanvasPos = GetComponent<RectTransform>();
-        CanvasPos.anchoredPosition = new Vector2(Random.Range(-320,100), Random.Range(-140,50));
+        CanvasPos.anchoredPosition = new Vector2(Random.Range(-300,300), Random.Range(-65,145));
         this.MyKey = instance.AssignKey(this.MyKey);
         this.MyImgKeys.sprite = instance.AssingImage(MyImgKeys.sprite);
     }

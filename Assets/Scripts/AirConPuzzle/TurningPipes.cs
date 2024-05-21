@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class TurningPipes : PuzzlesFather
 {
+    Hud hud;
     [SerializeField] GameObject[] Owners;
     Image[] RotatingPipes;
     Pipes[] pipes;
@@ -34,6 +35,8 @@ public class TurningPipes : PuzzlesFather
     }
     public override void Interact()
     {
+        hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<Hud>();
+        hud.activado = true;
         this.PuzzleHolder.SetActive(true);
         _isUsing = true;
         RotatingPipes[index].color = Color.red;
@@ -41,6 +44,7 @@ public class TurningPipes : PuzzlesFather
 
     public override void Exit()
     {
+        hud.activado = false;
         _isUsing = false;
         this.PuzzleHolder.SetActive(false);
     }

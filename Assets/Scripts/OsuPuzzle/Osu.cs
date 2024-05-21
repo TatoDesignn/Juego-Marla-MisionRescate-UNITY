@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Osu : PuzzlesFather
 {
+    Hud hud;
     [SerializeField] GameObject beatPrefab;
     [SerializeField] public float intervalRestart;
     [SerializeField] private float interval;
@@ -45,6 +46,7 @@ public class Osu : PuzzlesFather
 
     public override void Exit()
     {
+        hud.activado = false;
         Hits = 0;
         interval = 5;
         this.PuzzleHolder.SetActive(false);
@@ -53,6 +55,8 @@ public class Osu : PuzzlesFather
 
     public override void Interact()
     {
+        hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<Hud>();
+        hud.activado = true;
         this.PuzzleHolder.gameObject.SetActive(true);
     }
 

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
-public class TurningPipes : PuzzlesFather
-{
+public class TurningPipes : PuzzleFather2
+{ 
     Hud hud;
     [SerializeField] GameObject[] Owners;
     Image[] RotatingPipes;
@@ -49,6 +50,7 @@ public class TurningPipes : PuzzlesFather
         this.PuzzleHolder.SetActive(false);
     }
 
+    [PunRPC]
     private void ChangePipe(int dir)
     {
             RotatingPipes[index].color = Color.white;
@@ -70,7 +72,8 @@ public class TurningPipes : PuzzlesFather
 
     }
 
-    private void RotatePipe()
+    [PunRPC]
+    void RPC_RotatePipe()
     {
         pipes[index].Rotate();
     }
@@ -81,16 +84,16 @@ public class TurningPipes : PuzzlesFather
         {
             if(Input.GetKeyDown(KeyCode.D))
             {
-                ChangePipe(1);
+                photonView.RPC("ChangePipe", RpcTarget.All, 1);
             }
             else if(Input.GetKeyDown(KeyCode.A)) 
             {
-                ChangePipe(-1);
+                photonView.RPC("ChangePipe", RpcTarget.All, -1);
             }
 
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                RotatePipe();
+                photonView.RPC("RPC_RotatePipe", RpcTarget.All);
             }
         }
     }

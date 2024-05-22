@@ -28,7 +28,7 @@ public class Patrullar : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         Player Marla = other.GetComponent<Player>();
         if (Marla != null)
@@ -51,7 +51,7 @@ public class Patrullar : MonoBehaviour
             Marla.medidorAnimator.SetTrigger("Reanudar");
             Marla.medidorAnimator.SetFloat("Multiplier", 1f);
         }
-    }
+    }*/
 
     private void Update()
     {

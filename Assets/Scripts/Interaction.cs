@@ -54,23 +54,35 @@ public class Interaction : MonoBehaviourPunCallbacks
 
         if (Physics.Raycast(r, out RaycastHit hit, InteractRange))
         {
-            if (hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
-            {
-                interactObj.enabled = true;
-                interactObj.ChangeCamera(true);
-                player.isInteracting = true;
-                player.enabled = false;
-                animator.SetFloat("MovX", 0);
-                animator.SetFloat("MovY", 0);
-            }
-
-            else if(hit.collider.gameObject.TryGetComponent(out Vent_JonnoEntrance interact))
+            if (hit.collider.gameObject.TryGetComponent(out Vent_JonnoEntrance interact))
             {
                 interact.Interact(player.MyCamera, this.gameObject);
             }
             else if (hit.collider.gameObject.TryGetComponent(out Vent_JonnoExit interactable))
             {
                 interactable.Interact(player.MyCamera, this.gameObject);
+            }
+
+            if (hit.collider.gameObject.TryGetComponent(out MonoBehaviour interactObj))
+            {
+                if (interactObj is PuzzlesFather puzzlesFather)
+                {
+                    puzzlesFather.enabled = true;
+                    puzzlesFather.ChangeCamera(true);
+                    player.isInteracting = true;
+                    player.enabled = false;
+                    animator.SetFloat("MovX", 0);
+                    animator.SetFloat("MovY", 0);
+                }
+                else if (interactObj is PuzzleFather2 puzzlesFather2)
+                {
+                    puzzlesFather2.enabled = true;
+                    puzzlesFather2.ChangeCamera(true);
+                    player.isInteracting = true;
+                    player.enabled = false;
+                    animator.SetFloat("MovX", 0);
+                    animator.SetFloat("MovY", 0);
+                }
             }
         }
     }
@@ -86,11 +98,20 @@ public class Interaction : MonoBehaviourPunCallbacks
 
             if (Physics.Raycast(r, out RaycastHit hit, InteractRange))
             {
-                if (hit.collider.gameObject.TryGetComponent(out PuzzlesFather interactObj))
+                if (hit.collider.gameObject.TryGetComponent(out MonoBehaviour interactObj))
                 {
-                    interactObj.ChangeCamera(false);
-                    interactObj.Exit();
-                    StartCoroutine("BackToNormalView");
+                    if (interactObj is PuzzlesFather puzzlesFather)
+                    {
+                        puzzlesFather.ChangeCamera(false);
+                        puzzlesFather.Exit();
+                        StartCoroutine("BackToNormalView");
+                    }
+                    else if (interactObj is PuzzleFather2 puzzlesFather2)
+                    {
+                        puzzlesFather2.ChangeCamera(false);
+                        puzzlesFather2.Exit();
+                        StartCoroutine("BackToNormalView");
+                    }
                 }
             }
         }

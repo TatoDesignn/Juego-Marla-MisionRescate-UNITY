@@ -3829,6 +3829,7 @@ MonoBehaviour:
   speed: 2
   mouseSensitivity: 10
   LookClamp: 45
+  ray: {fileID: 8837212584452429745}
   isInteracting: 0
   MyCamera: {fileID: 6845182757869614292}
   camaraTransform: {fileID: 2587789299616887540}

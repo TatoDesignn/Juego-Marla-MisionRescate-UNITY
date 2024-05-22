@@ -46,6 +46,9 @@ MonoBehaviour:
   - RPC_Quitar
   - RPC_Animacion
   - RPC_Timer
+  - RCP_Cinematic
+  - RPC_RotatePipe
+  - ChangePipe
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

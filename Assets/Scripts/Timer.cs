@@ -28,7 +28,7 @@ public class Timer : MonoBehaviourPunCallbacks, IPunObservable
             {
                 elapsedTime -= Time.deltaTime;
             }
-            else if (elapsedTime < 1)
+            else if (elapsedTime < 0)
             {
                 elapsedTime = 0;
                 timerText.color = Color.red;

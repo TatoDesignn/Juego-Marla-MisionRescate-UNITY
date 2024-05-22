@@ -16,6 +16,7 @@ public class Player : MonoBehaviourPunCallbacks
     [SerializeField] private float speed;
     [SerializeField] private float mouseSensitivity;
     [SerializeField] private float LookClamp;
+    [SerializeField] private GameObject ray;
     public bool isInteracting = false;
 
     [Header("Configuracion de camara")]
@@ -52,6 +53,8 @@ public class Player : MonoBehaviourPunCallbacks
         if (!photonView.IsMine)
         {
             Destroy(GetComponentInChildren<Camera>().gameObject);
+            Destroy(GetComponent<Interaction>());
+            Destroy(ray);
         }
 
         // Ensure the AudioSource is set up correctly

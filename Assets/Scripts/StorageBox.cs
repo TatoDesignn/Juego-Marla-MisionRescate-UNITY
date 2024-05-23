@@ -12,11 +12,14 @@ public class StorageBox : PuzzlesFather
     private bool ActiveKey = false;
     [SerializeField] private Image D;
     [SerializeField] private Image A;
+    [SerializeField] private GameObject DBase;
+    [SerializeField] private GameObject ABase;
     private InputManager inputManager;
     [SerializeField] private int Steps = 0;
     [SerializeField] private int stepsNeeded;
     [SerializeField] private Slider Slider;
     [SerializeField] GameObject _Door;
+    [SerializeField] private Image PresstoExit;
 
     public override void Interact()
     {
@@ -31,6 +34,7 @@ public class StorageBox : PuzzlesFather
         else
             this.PuzzleHolder.SetActive(true);
         Slider.maxValue = stepsNeeded;
+        PresstoExit.enabled = false;
     }
 
     public override void Exit()
@@ -78,8 +82,11 @@ public class StorageBox : PuzzlesFather
         {
             _Door.SetActive(false);
             Completed = true;
-            Exit();
-            Debug.Log("Ya te vestiste, la verdad irrealmente rápido");
+            DBase.SetActive(false);
+            A.enabled = false;
+            ABase.SetActive(false);
+            D.enabled = false;
+            PresstoExit.enabled = true;
         }
         else
             return;

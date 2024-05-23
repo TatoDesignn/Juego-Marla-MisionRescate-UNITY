@@ -172,6 +172,8 @@ public class Player : MonoBehaviourPunCallbacks
 
         else if (other.CompareTag("Guardia"))
         {
+            Patrullar GuardiaAnimator = other.GetComponent<Patrullar>();
+            GuardiaAnimator.SetAnimator(true);
             medidorAnimator.SetTrigger("Cargar");
             medidorAnimator.SetFloat("Multiplier", 2.5f);
         }
@@ -185,6 +187,8 @@ public class Player : MonoBehaviourPunCallbacks
         }
         else if (other.CompareTag("Guardia"))
         {
+            Patrullar GuardiaAnimator = other.GetComponent<Patrullar>();
+            GuardiaAnimator.SetAnimator(false);
             medidorAnimator.SetTrigger("Reanudar");
             medidorAnimator.SetFloat("Multiplier", 1f);
         }

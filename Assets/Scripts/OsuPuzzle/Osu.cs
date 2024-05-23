@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,15 +12,18 @@ public class Osu : PuzzlesFather
     [SerializeField] public float intervalRestart;
     [SerializeField] private float interval;
     [SerializeField] private Material[] Bulbs;
+    [SerializeField] private Image PressToExit;
     [SerializeField] GameObject _Door;
     public static Osu instance;
     [SerializeField] private Sprite[] ImgKeys;
+    [SerializeField] private GameObject TutMessage;
     private static KeyCode[] keys = new KeyCode[4];
     private static int i = 0;
+    bool functioning;
 
     private int attempt = 0;
     public int Hits;
-    private int HitsNeeded = 5;
+    private int HitsNeeded = 16;
 
     [SerializeField] private AudioSource failSound;
 
@@ -27,6 +31,8 @@ public class Osu : PuzzlesFather
     {
         if (instance == null) instance = this;
         else Destroy(this.gameObject);
+        PressToExit.enabled = false;
+        functioning = true;
     }
 
     private void Start()
@@ -73,9 +79,12 @@ public class Osu : PuzzlesFather
 
     private void GenerateBeat()
     {
-        Instantiate(beatPrefab, this.PuzzleHolder.transform);
-        if (intervalRestart > 0.5f)
-            intervalRestart -= 0.1f;
+        if(functioning)
+        {
+            Instantiate(beatPrefab, this.PuzzleHolder.transform);
+            if (intervalRestart > 1.0f)
+                intervalRestart -= 0.15f;
+        }
     }
 
     public KeyCode AssignKey(KeyCode beat)
@@ -98,26 +107,37 @@ public class Osu : PuzzlesFather
         if (Hits == -5)
         {
             intervalRestart = 2.5f;
-            Exit();
-            base.ChangeCamera(false);
+            //Exit();
+            //base.ChangeCamera(false);
             Debug.Log("Fallaste, vuelve a intentarlo");
             // Reproducir sonido de fallo
             if (failSound != null)
                 failSound.Play();
+            PressToExit.enabled = true;
+            this.enabled = false;
         }
         else if (Hits == HitsNeeded)
         {
             Bulbs[attempt].color = Color.green;
             attempt++;
-            SetUpNext(attempt);
-            if(attempt >= 3)
-                _Door.SetActive(false);
-            Exit();
-            base.ChangeCamera(false);
+            TutMessage.SetActive(false);
+            //SetUpNext(attempt);
+            StartCoroutine("MoveDoor");
+            //Exit();
+            //base.ChangeCamera(false);
+            functioning = false;
         }
     }
 
-    private void SetUpNext(int attempt)
+    private IEnumerator MoveDoor()
+    {
+        _Door.transform.DOLocalMove(new Vector3(-0.1f, 0.1f, 4.4f),3f);
+        yield return new WaitForSeconds(3f);
+        _Door.transform.DOLocalMove(new Vector3(-0.1f, 5f, 4.4f), 2f);
+        PressToExit.enabled = true;
+    }
+
+    /*private void SetUpNext(int attempt)
     {
         switch (attempt)
         {
@@ -135,5 +155,5 @@ public class Osu : PuzzlesFather
                 HitsNeeded = 5; break;
 
         }
-    }
+    }*/
 }

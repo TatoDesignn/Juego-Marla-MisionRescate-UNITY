@@ -3997,6 +3997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8777326821743127501}
   - component: {fileID: 3400069189887340983}
+  - component: {fileID: 4528993312636600832}
   - component: {fileID: 7191730935986642063}
   - component: {fileID: 7338506298561624002}
   - component: {fileID: 2370640166376231204}
@@ -4064,6 +4065,38 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4528993312636600832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251866179534172535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b746ae310f48c642b70e40c2e19c9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionSounds:
+  - {fileID: 8300000, guid: a8f3b5de7924f184199fb2d3a79b797c, type: 3}
+  - {fileID: 8300000, guid: 8dd07f151b1985743a1a8b7ba72fc1e3, type: 3}
+  - {fileID: 8300000, guid: 325eba10bd1207348bbe81606f7f75de, type: 3}
+  - {fileID: 8300000, guid: b44248663cc16a04283da58fc0786c46, type: 3}
+  collisionTags:
+  - EspecificoTag3
+  - EspecificoTag4
+  - EspecificoTag5
+  - EspecificoTag5
+  triggerSounds:
+  - {fileID: 8300000, guid: a8f3b5de7924f184199fb2d3a79b797c, type: 3}
+  - {fileID: 8300000, guid: 8dd07f151b1985743a1a8b7ba72fc1e3, type: 3}
+  - {fileID: 8300000, guid: 325eba10bd1207348bbe81606f7f75de, type: 3}
+  - {fileID: 8300000, guid: b44248663cc16a04283da58fc0786c46, type: 3}
+  triggerTags:
+  - EspecificoTag3
+  - EspecificoTag4
+  - EspecificoTag5
+  - EspecificoTag6
 --- !u!54 &7191730935986642063
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4267,7 +4300,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -4302,7 +4335,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

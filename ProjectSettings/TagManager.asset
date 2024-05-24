@@ -18,6 +18,13 @@ TagManager:
   - LucesDeteccion
   - Guardia
   - Perder
+  - EspecificoTag
+  - EspecificoTag1
+  - EspecificoTag2
+  - EspecificoTag3
+  - EspecificoTag4
+  - EspecificoTag5
+  - EspecificoTag6
   layers:
   - Default
   - TransparentFX

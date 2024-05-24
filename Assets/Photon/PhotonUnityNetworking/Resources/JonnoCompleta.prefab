@@ -3705,6 +3705,7 @@ GameObject:
   - component: {fileID: 4142504167539687134}
   - component: {fileID: 1372180817653579910}
   - component: {fileID: 3132596535730883980}
+  - component: {fileID: 820148841230593873}
   - component: {fileID: -1801029310419015958}
   m_Layer: 0
   m_Name: JonnoCompleta
@@ -3943,6 +3944,34 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &820148841230593873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7808026873018002541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b746ae310f48c642b70e40c2e19c9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionSounds:
+  - {fileID: 8300000, guid: 3cc7be135479b6644935a7f876497b76, type: 3}
+  - {fileID: 8300000, guid: 61af0f73af1477148924cf6675a8732e, type: 3}
+  - {fileID: 8300000, guid: 8d6b8a988eab76746b82147814362cd8, type: 3}
+  collisionTags:
+  - EspecificoTag
+  - EspecificoTag1
+  - EspecificoTag2
+  triggerSounds:
+  - {fileID: 8300000, guid: 3cc7be135479b6644935a7f876497b76, type: 3}
+  - {fileID: 8300000, guid: 61af0f73af1477148924cf6675a8732e, type: 3}
+  - {fileID: 8300000, guid: 8d6b8a988eab76746b82147814362cd8, type: 3}
+  triggerTags:
+  - EspecificoTag
+  - EspecificoTag1
+  - EspecificoTag2
 --- !u!82 &-1801029310419015958
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3955,16 +3984,16 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.779
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 149
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -3999,7 +4028,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

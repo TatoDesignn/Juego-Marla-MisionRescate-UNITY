@@ -5521,6 +5521,7 @@ Transform:
   - {fileID: 1149300168}
   - {fileID: 977026406}
   - {fileID: 921013660}
+  - {fileID: 934782475}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &359929477
@@ -13187,6 +13188,40 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.010820528, y: 0.010820526, z: 0.010820528}
   m_Center: {x: 4.022027e-16, y: -0.0025566523, z: 0.000000006519259}
+--- !u!1 &934782474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 934782475}
+  m_Layer: 0
+  m_Name: voces Jonno
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &934782475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934782474}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7140064, y: 1.3073645, z: 1.4533157}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1826108032}
+  - {fileID: 1722166410}
+  - {fileID: 1652481471}
+  m_Father: {fileID: 357438809}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &936715369 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1653619644683873864, guid: 477e675d2888aab4e8d1dd510ae9c25b,
@@ -22567,12 +22602,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652481470}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.775, y: 0, z: -9.666}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.8329935, y: -1.3073645, z: -10.820316}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1826108032}
+  m_Father: {fileID: 934782475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1652481472
 BoxCollider:
@@ -22589,7 +22624,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -23396,12 +23431,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722166409}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.905, y: 0, z: -0.626}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.190993, y: -0.9003649, z: -1.7803154}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1826108032}
+  m_Father: {fileID: 934782475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1722166411
 BoxCollider:
@@ -24678,7 +24713,7 @@ GameObject:
   - component: {fileID: 1826108032}
   - component: {fileID: 1826108031}
   m_Layer: 0
-  m_Name: voces Jonno
+  m_Name: ' Jonno'
   m_TagString: EspecificoTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24714,13 +24749,11 @@ Transform:
   m_GameObject: {fileID: 1826108030}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.76, y: 9.09, z: 56.874}
+  m_LocalPosition: {x: -0.251, y: -1.3073645, z: -1.154316}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1722166410}
-  - {fileID: 1652481471}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 934782475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1826110067 stripped
 MonoBehaviour:
@@ -43613,5 +43646,4 @@ SceneRoots:
   - {fileID: 8275315350206930445}
   - {fileID: 854295383}
   - {fileID: 357438809}
-  - {fileID: 1826108032}
   - {fileID: 1545470140}

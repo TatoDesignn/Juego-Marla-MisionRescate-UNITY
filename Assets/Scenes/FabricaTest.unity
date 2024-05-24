@@ -7578,7 +7578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &556224868
 Transform:
   m_ObjectHideFlags: 0
@@ -9171,8 +9171,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 18.534134, z: 10}
-  m_Center: {x: 0, y: -9.267067, z: 0}
+  m_Size: {x: 10, y: 15.751129, z: 8.641341}
+  m_Center: {x: 0, y: -10.658569, z: -0.67933387}
 --- !u!23 &625718008
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21720,7 +21720,7 @@ VideoPlayer:
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
-  - 1
+  - 0.5
   m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00

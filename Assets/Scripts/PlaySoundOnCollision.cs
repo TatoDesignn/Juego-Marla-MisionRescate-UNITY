@@ -39,5 +39,7 @@ public class PlaySoundOnCollision : MonoBehaviour
             // Reproducir el sonido correspondiente al tag
             audioSource.PlayOneShot(triggerSounds[index]);
         }
+
+        Destroy(other.gameObject);
     }
 }

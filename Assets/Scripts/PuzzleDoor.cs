@@ -26,9 +26,9 @@ public class PuzzleDoor : PuzzlesFather
     public override void Exit()
     {
         hud.activado = false;
+        controles.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         controladorDoor.SetActive(false);
-        controles.SetActive(false);
         medidor.SetActive(true);
         if (!acceder)
         {

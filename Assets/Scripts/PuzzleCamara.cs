@@ -19,7 +19,7 @@ public class PuzzleCamara : PuzzlesFather
         controller.activo = true;
         hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<Hud>();
         hud.activado = true;
-        Invoke("Activar", 2f);
+        Invoke("Activar", 1f);
     }
 
     public override void Exit()

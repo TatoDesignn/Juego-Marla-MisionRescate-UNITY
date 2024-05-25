@@ -67,21 +67,11 @@ public class Interaction : MonoBehaviourPunCallbacks
             {
                 if (interactObj is PuzzlesFather puzzlesFather)
                 {
-                    puzzlesFather.enabled = true;
-                    puzzlesFather.ChangeCamera(true);
-                    player.isInteracting = true;
-                    player.enabled = false;
-                    animator.SetFloat("MovX", 0);
-                    animator.SetFloat("MovY", 0);
+                    StartCoroutine("StartInteraction", puzzlesFather);
                 }
                 else if (interactObj is PuzzleFather2 puzzlesFather2)
                 {
-                    puzzlesFather2.enabled = true;
-                    puzzlesFather2.ChangeCamera(true);
-                    player.isInteracting = true;
-                    player.enabled = false;
-                    animator.SetFloat("MovX", 0);
-                    animator.SetFloat("MovY", 0);
+                    StartCoroutine("StartInteraction", puzzlesFather2);
                 }
             }
         }
@@ -131,9 +121,37 @@ public class Interaction : MonoBehaviourPunCallbacks
 
     private IEnumerator BackToNormalView()
     {
+        this.enabled = false;
         player.isInteracting = false;
         yield return new WaitForSeconds(1.8f);
         player.enabled = true;
+        this.enabled = true;
+    }
+
+    private IEnumerator StartInteraction(PuzzlesFather puzzlesFather)
+    {
+        this.enabled = false;
+        puzzlesFather.enabled = true;
+        puzzlesFather.ChangeCamera(true);
+        player.isInteracting = true;
+        player.enabled = false;
+        animator.SetFloat("MovX", 0);
+        animator.SetFloat("MovY", 0);
+        yield return new WaitForSeconds(1f);
+        this.enabled = true;
+    }
+
+    private IEnumerator StartInteraction(PuzzleFather2 puzzlesFather2)
+    {
+        this.enabled = false;
+        puzzlesFather2.enabled = true;
+        puzzlesFather2.ChangeCamera(true);
+        player.isInteracting = true;
+        player.enabled = false;
+        animator.SetFloat("MovX", 0);
+        animator.SetFloat("MovY", 0);
+        yield return new WaitForSeconds(1f);
+        this.enabled = true;
     }
 
 }

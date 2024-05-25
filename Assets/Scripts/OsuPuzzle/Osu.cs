@@ -14,6 +14,7 @@ public class Osu : PuzzlesFather
     [SerializeField] private Material[] Bulbs;
     [SerializeField] private Image PressToExit;
     [SerializeField] GameObject _Door;
+    [SerializeField] ParticleSystem Signifier;
     public static Osu instance;
     [SerializeField] private Sprite[] ImgKeys;
     [SerializeField] private GameObject TutMessage;
@@ -23,7 +24,7 @@ public class Osu : PuzzlesFather
 
     private int attempt = 0;
     public int Hits;
-    private int HitsNeeded = 16;
+    private int HitsNeeded = 12;
 
     [SerializeField] private AudioSource failSound;
 
@@ -56,6 +57,7 @@ public class Osu : PuzzlesFather
         Hits = 0;
         interval = 5;
         this.PuzzleHolder.SetActive(false);
+        Signifier.gameObject.SetActive(false);
         this.enabled = false;
     }
 
@@ -133,7 +135,7 @@ public class Osu : PuzzlesFather
     {
         _Door.transform.DOLocalMove(new Vector3(-0.1f, 0.1f, 4.4f),3f);
         yield return new WaitForSeconds(3f);
-        _Door.transform.DOLocalMove(new Vector3(-0.1f, 5f, 4.4f), 2f);
+        _Door.transform.DOLocalMove(new Vector3(-0.1f, 1f, 4.4f), 2f);
         PressToExit.enabled = true;
     }
 

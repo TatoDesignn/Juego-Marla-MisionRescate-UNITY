@@ -20,6 +20,7 @@ public class StorageBox : PuzzlesFather
     [SerializeField] private Slider Slider;
     [SerializeField] GameObject _Door;
     [SerializeField] private Image PresstoExit;
+    [SerializeField] ParticleSystem Signifier;
 
     public override void Interact()
     {
@@ -41,6 +42,7 @@ public class StorageBox : PuzzlesFather
     {
         hud.activado = false;
         this.PuzzleHolder.SetActive(false);
+        Signifier.gameObject.SetActive(false);
         this.enabled = false;
     }
 

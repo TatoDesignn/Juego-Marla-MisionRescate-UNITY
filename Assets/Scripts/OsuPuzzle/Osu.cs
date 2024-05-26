@@ -24,7 +24,7 @@ public class Osu : PuzzlesFather
 
     private int attempt = 0;
     public int Hits;
-    private int HitsNeeded = 9;
+    private int HitsNeeded = 8;
 
     [SerializeField] private AudioSource failSound;
 

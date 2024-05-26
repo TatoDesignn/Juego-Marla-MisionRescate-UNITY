@@ -25026,6 +25026,11 @@ PrefabInstance:
       objectReference: {fileID: 7606332033060509079}
     - target: {fileID: 3059721256305253376, guid: 5a43f2eaba14f3b4687b0f6fdc51dc0f,
         type: 3}
+      propertyPath: interval
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3059721256305253376, guid: 5a43f2eaba14f3b4687b0f6fdc51dc0f,
+        type: 3}
       propertyPath: Signifier
       value: 
       objectReference: {fileID: 1935581102}
@@ -25042,7 +25047,7 @@ PrefabInstance:
     - target: {fileID: 3059721256305253376, guid: 5a43f2eaba14f3b4687b0f6fdc51dc0f,
         type: 3}
       propertyPath: intervalRestart
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3135138808687113727, guid: 5a43f2eaba14f3b4687b0f6fdc51dc0f,
         type: 3}

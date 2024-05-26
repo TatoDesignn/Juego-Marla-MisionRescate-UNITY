@@ -24,7 +24,7 @@ public class Osu : PuzzlesFather
 
     private int attempt = 0;
     public int Hits;
-    private int HitsNeeded = 12;
+    private int HitsNeeded = 9;
 
     [SerializeField] private AudioSource failSound;
 
@@ -84,8 +84,8 @@ public class Osu : PuzzlesFather
         if(functioning)
         {
             Instantiate(beatPrefab, this.PuzzleHolder.transform);
-            if (intervalRestart > 1.0f)
-                intervalRestart -= 0.15f;
+            if (intervalRestart > 1.1f)
+                intervalRestart -= 0.23f;
         }
     }
 
@@ -133,9 +133,8 @@ public class Osu : PuzzlesFather
 
     private IEnumerator MoveDoor()
     {
-        _Door.transform.DOLocalMove(new Vector3(-0.1f, 0.1f, 4.4f),3f);
+        _Door.transform.DOLocalMove(new Vector3(0.196f, 0.103f, 4.9f), 3f);
         yield return new WaitForSeconds(3f);
-        _Door.transform.DOLocalMove(new Vector3(-0.1f, 1f, 4.4f), 2f);
         PressToExit.enabled = true;
     }
 
